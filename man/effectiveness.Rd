@@ -61,10 +61,13 @@ New revision 23 January 2015.
 }
 \examples{
 # PJ example. Based on a dataset of Prunus mahaleb frugivores.
-# Get the data from my GitHub repository.
+# In this example we build the effectiveness landscape just for the 
+# quantitative component, plotting its two subcomponents, visitation 
+# rate and per-visit effectiveness.
+# Get the data from GitHub repository.
 link = "https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt"
 file = "data.txt"
-if(!file.exists(file)) download(link, file, mode = "wb")
+if(!file.exists(file)) downloader::download(link, file, mode = "wb")
 M <- read.table(file, sep = "\t", dec = ".", 
                 header = TRUE, na.strings="NA")
 
