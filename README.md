@@ -7,7 +7,6 @@ An `R` package for plotting the effectiveness landscape of mutualisms adding iso
 Usage:
 ```r
 devtools::install_github("pedroj/effectiveness_pckg")
-devtools::load_all(".")
 library(effect.lndscp)
 # PJ example. Based on a dataset of Prunus mahaleb frugivores.
 # Get the data from my GitHub repository.
