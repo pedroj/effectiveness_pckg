@@ -42,7 +42,7 @@ effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     # q2 is the component to plot on Y axis
     # group is a group label
     # label is a taxa label
-    devtools::use_package("ggplot2") # Defaults to imports
+    # devtools::use_package("ggplot2") # Defaults to imports
     #
     d<-as.data.frame(cbind(q1, q2, group, label))
     names(d)
