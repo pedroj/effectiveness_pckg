@@ -4,7 +4,9 @@
 \title{Function to plot effectiveness landscapes
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Effectiveness landscapes are the two-dimensional representation of the possible combinations of the quantity and the quality of mutualistic services (seed dispersal, pollination) and with elevational contours representing isoclines of effectiveness. These representations can be 2D bivariate plots of multiplicative effects of any of the seed dispersal (SDE) or pollination (PE) effectiveness components. This is a repository of code used to produce these plots.
+
+For additional details please visit the web page [here](http://pedroj.github.com/effectiveness/).
 }
 \usage{
 effectiveness(q1, q2, group = NA, label = NA, nlines = 10, myxlab = "QtComp", myylab = "QltComp")
@@ -37,11 +39,7 @@ Label for the Y axis. Default is 'QltComp'.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+The function returns a plot of the effectiveness landscape for the slected species assemblage, indicating effectiveness isoclines.
 }
 \references{
 Schupp, E. W., Jordano, P. and Gomez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
@@ -62,7 +60,6 @@ New revision 23 January 2015.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-devtools::use_package("downloader")
 # PJ example. Based on a dataset of Prunus mahaleb frugivores.
 # Get the data from my GitHub repository.
 link = "https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt"
