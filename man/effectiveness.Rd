@@ -1,7 +1,7 @@
 \name{effectiveness}
 \alias{effectiveness}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Function to plot effectiveness landscapes.
+\title{Function to plot effectiveness landscapes
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -27,10 +27,10 @@ Label of the plot.
 The number of isolines to be plotted. Default is 10.
 }
   \item{myxlab}{
-Label for the X axis. Default is "QtComp".
+Label for the X axis. Default is 'QtComp'.
 }
   \item{myylab}{
-Label for the Y axis. Default is "QltComp".
+Label for the Y axis. Default is 'QltComp'.
 }
 }
 \details{
@@ -44,7 +44,7 @@ Label for the Y axis. Default is "QltComp".
 %% ...
 }
 \references{
-Schupp, E. W., Jordano, P. and Gómez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
+Schupp, E. W., Jordano, P. and Gomez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
 }
 \author{
 Pedro Jordano
@@ -62,7 +62,7 @@ New revision 23 January 2015.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-require(downloader)
+devtools::use_package("downloader")
 # PJ example. Based on a dataset of Prunus mahaleb frugivores.
 # Get the data from my GitHub repository.
 link = "https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt"
