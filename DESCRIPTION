@@ -16,8 +16,7 @@ Depends:
 Imports:
     devtools,
     downloader,
-    ggplot2,
-    dplyr
+    ggplot2
 URL: http://pedroj.github.com/effectiveness/,http://ebd10.ebd.csic.es/resources/
 License: GPL-3
 LazyData: true
