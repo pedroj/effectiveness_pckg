@@ -41,3 +41,4 @@ data(prunus)
 effectiveness(prunus$visits, prunus$eff_per_vis, prunus$group, prunus$animal, 10, 
 myxlab= "No. visits/10h", myylab="Effectiveness/vis (No. fruits handled)")
 }
+

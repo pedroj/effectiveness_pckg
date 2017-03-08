@@ -4,7 +4,7 @@
 \name{prunus}
 \alias{prunus}
 \title{Quantitative component of effectiveness for Prunus mahaleb-frugivorous birds interactions.}
-\format{An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.}
+\format{A dataset.}
 \source{
 \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt}{Data txt archive}
 }
@@ -31,3 +31,4 @@ prop_disp_service-  Proportion of total dispersal service contributed by
 Schupp, E. W., Jordano, P. and Gomez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
 }
 \keyword{datasets}
+
