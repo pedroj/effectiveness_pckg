@@ -17,9 +17,6 @@
 #'
 #' @docType data
 #' 
-#' @name prunus
-#' 
-#'
 #' @usage data(prunus)
 #'
 #' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
@@ -30,4 +27,4 @@
 #'
 #' @source \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt}{Data txt archive}
 #'
-NULL
+"prunus"

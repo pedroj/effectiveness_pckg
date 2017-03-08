@@ -1,42 +1,30 @@
-#---------------------------------------------------------------------------
-# effectiveness
-# Function to plot effectiveness landscapes.
-#---------------------------------------------------------------------------
-# autoisolines: Code for automatically plotting isolines of
-# effectiveness landscapes.
-# Based on code for plotting effectiveness landscapes by Pedro 
-# Jordano and code for automatic calculation of isolines 
-# by Bernardo Santos.
-# 3 December 2013. UNESP, Rio Claro, Brazil. Pedro Jordano.
-#---------------------------------------------------------------------------
-## First version 12 Jan 2009. Revised 3 December 2013.
-## New revision 23 January 2015.
-#---------------------------------------------------------------------------
-# DESCRIPTION:
-# The script plots effectiveness landscapes as described in
-# Schupp, E. W., Jordano, P. and Gómez, J.M. 2010. Seed dispersal
-# effectiveness revisited: a conceptual review. New Phytologist
-# 188: 333-353.
-#---------------------------------------------------------------------------
-# Options:
-#   q1, the "quantitative component", to plot on the X axis. 
-#   q2, the "qualitative component", to plot on the Y axis.
-#   group=NA, a grouping variable to set point shapes (e.g., family).
-#   label= NA, a label for the individual points (e.g., spcies acronym).
-#   nlines=10, specify the number of isolines.
-#   myxlab= "QtComp", optional label for axis X.
-#   myylab= "QltComp", optional label for axis Y.
-# 
-# Example:
-# effectiveness(sde$visits, sde$eff_per_vis, sde$group, sde$animal, 10, 
-#               myxlab= "No. visits/10h", 
-#               myylab="Effectiveness/vis (No. fruits handled)")
-# effectiveness(cgla$totvis, cgla$totbic, cgla$fam, cgla$code, 15, 
-#               myxlab= "Total no. visits", 
-#               myylab="No. fruits pecked/vis")
-#---------------------------------------------------------------------------
-#
-effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
+#' Function to plot effectiveness landscapes.
+#' 
+#' @import ggplot2
+#'
+#' @param q1 the "quantitative component", to plot on the X axis. 
+#' @param q2 the "qualitative component", to plot on the Y axis.
+#' @param group a grouping variable to set point shapes (e.g., family).
+#' @param label a label for the individual points (e.g., spcies acronym).
+#' @param nlines specify the number of isolines.
+#' @param myxlab optional label for axis X.
+#' @param myylab optional label for axis Y.
+#'
+#' @details The script plots effectiveness landscapes as described in Schupp, E. W., Jordano, P. and Gómez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
+#' 
+#' @return A ggplot2 object.
+#' @export
+#'
+#' @examples
+#' # PJ example. Based on a dataset of Prunus mahaleb frugivores.
+#' # In this example we build the effectiveness landscape just for the 
+#' # quantitative component, plotting its two subcomponents, visitation 
+#' # rate and per-visit effectiveness.
+#' # Get the data from GitHub repository.
+#' data(prunus)
+#' effectiveness(prunus$visits, prunus$eff_per_vis, prunus$group, prunus$animal, 10, 
+#' myxlab= "No. visits/10h", myylab="Effectiveness/vis (No. fruits handled)")
+effectiveness <- function(q1, q2, group=NA, label= NA, nlines=10,
                         myxlab= "QtComp", myylab= "QltComp")    {
     # q1 is the component to plot on X axis
     # q2 is the component to plot on Y axis
@@ -64,7 +52,7 @@ effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     # Main plot ------------------------------------------------------------
     # mytheme_bw.R
     # devtools::source_gist("https://gist.github.com/b843fbafa3af8f408972")
-    devtools::source_gist("b843fbafa3af8f408972", filename = "mytheme_bw.R")
+    #devtools::source_gist("b843fbafa3af8f408972", filename = "mytheme_bw.R")
     #
     p1<- ggplot(d, aes(x=q1, y=q2)) + 
         geom_point(shape= group, size=5) +
