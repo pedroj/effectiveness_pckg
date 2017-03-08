@@ -57,7 +57,8 @@ effectiveness <- function(q1, q2, group=NA, label= NA, nlines=10,
     p1<- ggplot(d, aes(x=q1, y=q2)) + 
         geom_point(shape= group, size=5) +
         geom_text(size= 4, label= label, hjust= 0.5, vjust= 1.9) +
-        mytheme_bw()
+        mytheme_bw() +
+        ylim(0, max(q2)) 
     # Adding isolines ------------------------------------------------------
     labelx<- rep(0.8*max(q1), nlines)
     labely<- as.vector(t(pp[800,1:nlines+1]))
@@ -68,7 +69,7 @@ effectiveness <- function(q1, q2, group=NA, label= NA, nlines=10,
         p1= p1 + geom_line(aes(x, y), 
             data= data.frame(x= pp$vis1, y= pp[,i]), 
             col="blue", size = 0.25, alpha= 0.6) + 
-            ylim(0, max(q2)) +
+        #    ylim(0, max(q2)) +
             xlab(paste(myxlab)) + 
             ylab(paste(myylab))  # +
         #        geom_text(aes(), data= NULL, x= labelx, y= labely, 
