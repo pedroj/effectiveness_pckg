@@ -16,21 +16,20 @@
 #' @export
 #'
 #' @examples
-#' # PJ example. Based on a dataset of Prunus mahaleb frugivores.
+#' # Based on a dataset of Prunus mahaleb frugivores.
 #' # In this example we build the effectiveness landscape just for the 
 #' # quantitative component, plotting its two subcomponents, visitation 
 #' # rate and per-visit effectiveness.
-#' # Get the data from GitHub repository.
-#' data(prunus)
-#' effectiveness(prunus$visits, prunus$eff_per_vis, prunus$group, prunus$animal, 10, 
-#' myxlab= "No. visits/10h", myylab="Effectiveness/vis (No. fruits handled)")
-effectiveness <- function(q1, q2, group=NA, label= NA, nlines=10,
-                        myxlab= "QtComp", myylab= "QltComp")    {
+#---------------------------------------------------------------------------
+#
+effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
+    myxlab= "QtComp", myylab= "QltComp")    {
     # q1 is the component to plot on X axis
     # q2 is the component to plot on Y axis
     # group is a group label
     # label is a taxa label
-    # devtools::use_package("ggplot2") # Defaults to imports
+    require(devtools)
+    require(ggplot2)
     #
     d<-as.data.frame(cbind(q1, q2, group, label))
     names(d)
@@ -52,13 +51,12 @@ effectiveness <- function(q1, q2, group=NA, label= NA, nlines=10,
     # Main plot ------------------------------------------------------------
     # mytheme_bw.R
     # devtools::source_gist("https://gist.github.com/b843fbafa3af8f408972")
-    #devtools::source_gist("b843fbafa3af8f408972", filename = "mytheme_bw.R")
+    devtools::source_gist("b843fbafa3af8f408972", filename = "mytheme_bw.R")
     #
     p1<- ggplot(d, aes(x=q1, y=q2)) + 
         geom_point(shape= group, size=5) +
         geom_text(size= 4, label= label, hjust= 0.5, vjust= 1.9) +
-        mytheme_bw() +
-        ylim(0, max(q2)) 
+        mytheme_bw()
     # Adding isolines ------------------------------------------------------
     labelx<- rep(0.8*max(q1), nlines)
     labely<- as.vector(t(pp[800,1:nlines+1]))
@@ -69,7 +67,7 @@ effectiveness <- function(q1, q2, group=NA, label= NA, nlines=10,
         p1= p1 + geom_line(aes(x, y), 
             data= data.frame(x= pp$vis1, y= pp[,i]), 
             col="blue", size = 0.25, alpha= 0.6) + 
-        #    ylim(0, max(q2)) +
+            ylim(0, max(q2)) +
             xlab(paste(myxlab)) + 
             ylab(paste(myylab))  # +
         #        geom_text(aes(), data= NULL, x= labelx, y= labely, 

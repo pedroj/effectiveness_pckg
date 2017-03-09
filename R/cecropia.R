@@ -5,17 +5,12 @@
 #' Data from a field project during the Frugivory and Seed dispersal field course, 2012. 
 #' 
 #' Variables include:
-#' Visitation data come from 140 h direct watches.
-#' abundance-          Mean no. birds censused/km, averaged for two study years.
-#' visits-             Mean no. visitis recorded to fruiting trees (/10 h).
-#' prop_visits-        Proportion of total visits recorded (feeding records)
-#'                     contributed by species. Relative to the total no. 
-#'                     records in two study years.
-#' eff_per_vis-        Mean no. fruits swallowed per visit (successfully 
-#'                     dispersed seeds).
-#' eff_total-          Visit rate * eff_per_vis*prop fruits swallowed.
-#' prop_disp_service-  Proportion of total dispersal service contributed by
-#'                     species.
+#' Visitation data come from 140 h direct watches. A data.frame with 42 obs. of  37 variables. 
+#' First 6 variables are codes for Class, Order, Family, Genus, Species, and species label.
+#' totvis-             Number of visits recorded, pooled all trees.
+#' totbic-             Mean number of peckings to Cecropia catkins during a single visit. Birds do several peckings and ingest the seeds from these small pieces of the catkins. This may be used to estimate ingestion rate per visit.
+#' sde-                Effectiveness estimate for the quantitative component, totvis * totbic.
+#' Columns 10-37 are the number of visits recorded to each individual Cecropia tree.
 #'
 #' @docType data
 #' 
