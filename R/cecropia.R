@@ -1,0 +1,30 @@
+#' Quantitative component of effectiveness for Cecropia glaziovii-frugivorous birds interactions.
+#' Focal observations at Parque Estadual Intervales, Sao Paulo. 
+#' Pedro Jordano. 25 Mar 2012.
+#'
+#' Data from a field project during the Frugivory and Seed dispersal field course, 2012. 
+#' 
+#' Variables include:
+#' Visitation data come from 140 h direct watches.
+#' abundance-          Mean no. birds censused/km, averaged for two study years.
+#' visits-             Mean no. visitis recorded to fruiting trees (/10 h).
+#' prop_visits-        Proportion of total visits recorded (feeding records)
+#'                     contributed by species. Relative to the total no. 
+#'                     records in two study years.
+#' eff_per_vis-        Mean no. fruits swallowed per visit (successfully 
+#'                     dispersed seeds).
+#' eff_total-          Visit rate * eff_per_vis*prop fruits swallowed.
+#' prop_disp_service-  Proportion of total dispersal service contributed by
+#'                     species.
+#'
+#' @docType data
+#' 
+#' @usage data(cecropia)
+#'
+#' @format A dataset (dataframe).
+#'
+#' @keywords datasets
+#'
+#' @source \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/cecropia/data.txt}{Data txt archive}
+#'
+"cecropia"
