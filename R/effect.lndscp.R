@@ -2,7 +2,7 @@
 #'
 #' Effectiveness landscapes
 #'
-#' @name effect.lndscp-package
+#' @name effect.lndscp
 #' @docType package
 #' @author Pedro Jordano
 #' @keywords package
