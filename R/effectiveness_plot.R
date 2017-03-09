@@ -1,4 +1,5 @@
-#' Function to plot effectiveness landscapes.
+# The function -------------------------------------------------------------
+#' Function to plot effectiveness landscapes, with repel labels option.
 #' 
 #' @import ggplot2
 #'
@@ -17,19 +18,19 @@
 #'
 #' @examples
 #' #------------------------------------------------------------------------
-#' # Based on a dataset of Prunus mahaleb frugivores.
+#' # Based on a dataset of Cecropia glaziovii frugivores.
 #' # In this example we build the effectiveness landscape just for the 
 #' # quantitative component, plotting its two subcomponents, visitation 
 #' # rate and per-visit effectiveness.
 #' #------------------------------------------------------------------------
-#' data(prunus)
-#' effectiveness(prunus$visits, prunus$eff_per_vis, 
-#'    prunus$group, prunus$animal, 10, 
-#'    myxlab= "No. visits/10h", 
-#'    myylab="Effectiveness/vis (No. fruits handled)")
+#' data(cecropia)
+#' effectiveness_plot(cecropia$totvis, cecropia$totbic, 
+#'     cecropia$fam, cecropia$code, 10, 
+#'     myxlab= "No. visits/10h", 
+#'     myylab="Effectiveness/vis (No. fruits handled)")
 #' #------------------------------------------------------------------------
 #'
-effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
+effectiveness_plot<- function(q1, q2, group=NA, label= NA, nlines=10,
     myxlab= "QtComp", myylab= "QltComp")    {
     # q1 is the component to plot on X axis
     # q2 is the component to plot on Y axis
@@ -62,12 +63,12 @@ effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     devtools::source_gist("b843fbafa3af8f408972", filename = "mytheme_bw.R")
     #
     p1<- ggplot(d, aes(x= q1, y= q2)) + 
-        geom_point(shape= group, size= 3) +
-        #geom_text_repel(aes(x= q1, y= q2), size= 3, label= label, 
-        #    nudge_y= 0.5,
-        #    segment.size= 0.2, segment.alpha= 0.75) +
-        geom_text(size= 2, label= label, hjust= 0.5, vjust= 2.2) +
-        mytheme_bw()
+         geom_point(shape= group, size= 3) +
+         geom_text_repel(aes(x= q1, y= q2), size= 3, label= label, 
+                         nudge_y= 0.5,
+                         segment.size= 0.2, segment.alpha= 0.75) +
+    #    geom_text(size= 2, label= label, hjust= 0.5, vjust= 2.2) +
+         mytheme_bw()
     # Repel labels
     # ggplot(d) +
     # geom_point(aes(q1, q2), color = 'red') +
@@ -95,4 +96,4 @@ effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
         label=paste("QC= ", round(isoc,1)), 
         size=4, colour="red", hjust=0) 
 }
-#---------------------------------------------------------------------------
+
