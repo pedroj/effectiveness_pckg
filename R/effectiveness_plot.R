@@ -1,20 +1,3 @@
-# Tests --------------------------------------------------------------------
-devtools::install_github('hadley/ggplot2', force=T)
-devtools::install_github('thomasp85/ggforce', force=T)
-devtools::install_github('thomasp85/ggraph', force=T)
-devtools::install_github('slowkow/ggrepel', force=T)
-
-effectiveness_plot(prunus$visits, prunus$eff_per_vis, 
-    prunus$group, prunus$animal, 10, 
-    myxlab= "No. visits/10h", 
-    myylab="Effectiveness/vis (No. fruits handled)")
-
-effectiveness_plot(cecropia$totvis,cecropia$totbic, 
-    cecropia$fam, cecropia$code, 10, 
-    myxlab= "No. visits/10h", 
-    myylab="No. fruit pecks/visit")
-
-
 # The function -------------------------------------------------------------
 #' Function to plot effectiveness landscapes.
 #' 
