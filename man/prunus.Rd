@@ -4,7 +4,7 @@
 \name{prunus}
 \alias{prunus}
 \title{Quantitative component of effectiveness for Prunus mahaleb-frugivorous birds interactions.}
-\format{A dataset.}
+\format{A dataset (dataframe).}
 \source{
 \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt}{Data txt archive}
 }
