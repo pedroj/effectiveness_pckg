@@ -32,13 +32,9 @@ Function to plot effectiveness landscapes.
 The script plots effectiveness landscapes as described in Schupp, E. W., Jordano, P. and Gómez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
 }
 \examples{
-# PJ example. Based on a dataset of Prunus mahaleb frugivores.
+# Based on a dataset of Prunus mahaleb frugivores.
 # In this example we build the effectiveness landscape just for the 
 # quantitative component, plotting its two subcomponents, visitation 
 # rate and per-visit effectiveness.
-# Get the data from GitHub repository.
-data(prunus)
-effectiveness(prunus$visits, prunus$eff_per_vis, prunus$group, prunus$animal, 10, 
-myxlab= "No. visits/10h", myylab="Effectiveness/vis (No. fruits handled)")
 }
 
