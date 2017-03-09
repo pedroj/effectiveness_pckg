@@ -1,5 +1,5 @@
 # The function -------------------------------------------------------------
-#' Function to plot effectiveness landscapes.
+#' Function to plot effectiveness landscapes, with repel labels option.
 #' 
 #' @import ggplot2
 #'
@@ -17,11 +17,19 @@
 #' @export
 #'
 #' @examples
-#' # Based on a dataset of Prunus mahaleb frugivores.
+#' #------------------------------------------------------------------------
+#' # Based on a dataset of Cecropia glaziovii frugivores.
 #' # In this example we build the effectiveness landscape just for the 
 #' # quantitative component, plotting its two subcomponents, visitation 
 #' # rate and per-visit effectiveness.
-#'---------------------------------------------------------------------------'
+#' #------------------------------------------------------------------------
+#' data(cecropia)
+#' effectiveness_plot(cecropia$totvis, cecropia$totbic, 
+#'     cecropia$fam, cecropia$code, 10, 
+#'     myxlab= "No. visits/10h", 
+#'     myylab="Effectiveness/vis (No. fruits handled)")
+#' #------------------------------------------------------------------------
+#'
 effectiveness_plot<- function(q1, q2, group=NA, label= NA, nlines=10,
     myxlab= "QtComp", myylab= "QltComp")    {
     # q1 is the component to plot on X axis
