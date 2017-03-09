@@ -5,11 +5,17 @@
 #' Data from a field project during the Frugivory and Seed dispersal field course, 2012. 
 #' 
 #' Variables include:
+#'
 #' Visitation data come from 140 h direct watches. A data.frame with 42 obs. of  37 variables. 
+#'
 #' First 6 variables are codes for Class, Order, Family, Genus, Species, and species label.
+#'
 #' totvis-             Number of visits recorded, pooled all trees.
+#'
 #' totbic-             Mean number of peckings to Cecropia catkins during a single visit. Birds do several peckings and ingest the seeds from these small pieces of the catkins. This may be used to estimate ingestion rate per visit.
+#'
 #' sde-                Effectiveness estimate for the quantitative component, totvis * totbic.
+#'
 #' Columns 10-37 are the number of visits recorded to each individual Cecropia tree.
 #'
 #' @docType data
