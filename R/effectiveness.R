@@ -1,6 +1,7 @@
 #' Function to plot effectiveness landscapes.
 #' 
 #' @import ggplot2
+#' @import ggrepel
 #'
 #' @param q1 the "quantitative component", to plot on the X axis. 
 #' @param q2 the "qualitative component", to plot on the Y axis.
@@ -16,15 +17,12 @@
 #' @export
 #'
 #' @examples
-<<<<<<< Updated upstream
 #' #------------------------------------------------------------------------
-=======
->>>>>>> Stashed changes
 #' # Based on a dataset of Prunus mahaleb frugivores.
 #' # In this example we build the effectiveness landscape just for the 
 #' # quantitative component, plotting its two subcomponents, visitation 
 #' # rate and per-visit effectiveness.
-<<<<<<< Updated upstream
+
 #' #------------------------------------------------------------------------
 #' data(prunus)
 #' effectiveness(prunus$visits, prunus$eff_per_vis, 
@@ -33,23 +31,12 @@
 #'    myylab="Effectiveness/vis (No. fruits handled)")
 #' #------------------------------------------------------------------------
 #'
-=======
-#---------------------------------------------------------------------------
-#
->>>>>>> Stashed changes
 effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     myxlab= "QtComp", myylab= "QltComp")    {
     # q1 is the component to plot on X axis
     # q2 is the component to plot on Y axis
     # group is a group label
     # label is a taxa label
-    require(devtools)
-    require(ggplot2)
-<<<<<<< Updated upstream
-    require(ggrepel)
-=======
->>>>>>> Stashed changes
-    #
     d<-as.data.frame(cbind(q1, q2, group, label))
     names(d)
     nlines <- nlines+1 # number of isolines wanted
