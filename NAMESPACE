@@ -3,3 +3,4 @@
 export(effectiveness)
 export(effectiveness_plot)
 import(ggplot2)
+import(ggrepel)

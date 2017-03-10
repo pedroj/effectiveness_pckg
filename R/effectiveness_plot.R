@@ -2,7 +2,8 @@
 #' Function to plot effectiveness landscapes, with repel labels option.
 #' 
 #' @import ggplot2
-#'
+#' @import ggrepel
+#' 
 #' @param q1 the "quantitative component", to plot on the X axis. 
 #' @param q2 the "qualitative component", to plot on the Y axis.
 #' @param group a grouping variable to set point shapes (e.g., family).
