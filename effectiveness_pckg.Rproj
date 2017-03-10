@@ -15,5 +15,12 @@ LaTeX: pdfLaTeX
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
+<<<<<<< Updated upstream
 PackageCheckArgs: –no-examples
+=======
+<<<<<<< HEAD
+=======
+PackageCheckArgs: –no-examples
+>>>>>>> master
+>>>>>>> Stashed changes
 PackageRoxygenize: rd,collate,namespace

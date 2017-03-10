@@ -16,11 +16,15 @@
 #' @export
 #'
 #' @examples
+<<<<<<< Updated upstream
 #' #------------------------------------------------------------------------
+=======
+>>>>>>> Stashed changes
 #' # Based on a dataset of Prunus mahaleb frugivores.
 #' # In this example we build the effectiveness landscape just for the 
 #' # quantitative component, plotting its two subcomponents, visitation 
 #' # rate and per-visit effectiveness.
+<<<<<<< Updated upstream
 #' #------------------------------------------------------------------------
 #' data(prunus)
 #' effectiveness(prunus$visits, prunus$eff_per_vis, 
@@ -29,6 +33,10 @@
 #'    myylab="Effectiveness/vis (No. fruits handled)")
 #' #------------------------------------------------------------------------
 #'
+=======
+#---------------------------------------------------------------------------
+#
+>>>>>>> Stashed changes
 effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     myxlab= "QtComp", myylab= "QltComp")    {
     # q1 is the component to plot on X axis
@@ -37,7 +45,10 @@ effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     # label is a taxa label
     require(devtools)
     require(ggplot2)
+<<<<<<< Updated upstream
     require(ggrepel)
+=======
+>>>>>>> Stashed changes
     #
     d<-as.data.frame(cbind(q1, q2, group, label))
     names(d)
