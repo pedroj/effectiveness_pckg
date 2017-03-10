@@ -57,7 +57,7 @@ effectiveness<- function(q1, q2, group=NA, label= NA, nlines=10,
     # Main plot ------------------------------------------------------------
     # mytheme_bw.R
     # devtools::source_gist("https://gist.github.com/b843fbafa3af8f408972")
-    devtools::source_gist("b843fbafa3af8f408972", filename = "mytheme_bw.R")
+    source("./R/mytheme_bw.R")
     #
     p1<- ggplot(d, aes(x= q1, y= q2)) + 
         geom_point(shape= group, size= 3) +

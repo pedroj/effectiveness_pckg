@@ -4,15 +4,7 @@
 \name{prunus}
 \alias{prunus}
 \title{Quantitative component of effectiveness for Prunus mahaleb-frugivorous birds interactions.}
-<<<<<<< Updated upstream
 \format{A dataset (dataframe).}
-=======
-<<<<<<< HEAD
-\format{}
-=======
-\format{A dataset (dataframe).}
->>>>>>> master
->>>>>>> Stashed changes
 \source{
 \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt}{Data txt archive}
 }
@@ -20,28 +12,11 @@
 data(prunus)
 }
 \description{
-Data from a study on Prunus mahaleb (Rosaceae) seed dispersal by frugivorous
-<<<<<<< Updated upstream
-animals in SE Spain.
-=======
-<<<<<<< HEAD
-animals in SE Spain. Visitation data come from 107.3 h direct watches.
-=======
-animals in SE Spain.
->>>>>>> master
->>>>>>> Stashed changes
+Data from a study on Prunus mahaleb (Rosaceae) seed dispersal by frugivorous animals in SE Spain. Visitation data come from 107.3 h direct watches.
 }
 \details{
 Variables include:
 
-<<<<<<< Updated upstream
-# Visitation data come from 107.3 h direct watches.
-=======
-<<<<<<< HEAD
-=======
-# Visitation data come from 107.3 h direct watches.
->>>>>>> master
->>>>>>> Stashed changes
 abundance-          Mean no. birds censused/km, averaged for two study years.
 
 visits-             Mean no. visitis recorded to fruiting trees (/10 h).
@@ -49,24 +24,10 @@ visits-             Mean no. visitis recorded to fruiting trees (/10 h).
 prop_visits-        Proportion of total visits recorded (feeding records)
                     contributed by species. Relative to the total no. 
                     records in two study years.
-<<<<<<< Updated upstream
 
 eff_per_vis-        Mean no. fruits swallowed per visit (successfully 
                     dispersed seeds).
 
-=======
-<<<<<<< HEAD
-                    
-eff_per_vis-        Mean no. fruits swallowed per visit (successfully 
-                    dispersed seeds).
-                    
-=======
-
-eff_per_vis-        Mean no. fruits swallowed per visit (successfully 
-                    dispersed seeds).
-
->>>>>>> master
->>>>>>> Stashed changes
 eff_total-          Visit rate * eff_per_vis*prop fruits swallowed.
 
 prop_disp_service-  Proportion of total dispersal service contributed by
@@ -74,16 +35,8 @@ prop_disp_service-  Proportion of total dispersal service contributed by
 }
 \references{
 Schupp, E. W., Jordano, P. and Gomez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
-<<<<<<< Updated upstream
 
 Jordano, P. and Schupp, E.W. 2000. Seed disperser effectiveness: The quantity component and patterns of seed rain for Prunus mahaleb. Ecological Monographs 70: 591–615.
-=======
-<<<<<<< HEAD
-=======
-
-Jordano, P. and Schupp, E.W. 2000. Seed disperser effectiveness: The quantity component and patterns of seed rain for Prunus mahaleb. Ecological Monographs 70: 591–615.
->>>>>>> master
->>>>>>> Stashed changes
 }
 \keyword{datasets}
 
