@@ -37,7 +37,7 @@ Effectiveness landscapes are the two-dimensional representation of the possible 
 For additional details please visit the web page [here](http://pedroj.github.com/effectiveness/).
 
 **References**       
-Schupp, E.W., Jordano, P. &amp; Gómez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **00**, 000–000. In press. **doi**: 10.1111/ele.12764        
+Schupp, E.W., Jordano, P. &amp; Gómez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **00**, 000–000. In press. **doi**: 10.1111/ele.12764    
 Schupp, E.W., Jordano, P. & Gómez, J.M. (2010) Seed dispersal effectiveness revisited: A conceptual review. _New Phytologist_, **188**, 333–353.       
 Schupp, E.W. (1993) Quantity, quality and the effectiveness of seed dispersal by animals. In: _Frugivory and seed dispersal: ecological and evolutionary aspects_ (eds T.H. Fleming & A. Estrada), pp. 15–29. Springer, Dordrecht; The Netherlands.       
 Jordano, P. & Schupp, E.W. (2000) Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. _Ecological Monographs_, **70**, 591–615.     
