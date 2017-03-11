@@ -35,3 +35,11 @@ effectiveness_plot(cecropia$totvis, cecropia$totbic,
 Effectiveness landscapes are the two-dimensional representation of the possible combinations of the quantity and the quality of mutualistic services (seed dispersal, pollination) and with elevational contours representing isoclines of effectiveness. These representations can be 2D bivariate plots of multiplicative effects of any of the seed dispersal (SDE) or pollination (PE) effectiveness components. This is a repository of code used to produce these plots.
 
 For additional details please visit the web page [here](http://pedroj.github.com/effectiveness/).
+
+**References**       
+Schupp, E.W., Jordano, P. & Gómez, J.M. (2010) Seed dispersal effectiveness revisited: A conceptual review. _New Phytologist_, **188**, 333–353.       
+Schupp, E.W. (1993) Quantity, quality and the effectiveness of seed dispersal by animals. In: _Frugivory and seed dispersal: ecological and evolutionary aspects_ (eds T.H. Fleming & A. Estrada), pp. 15–29. Springer, Dordrecht; The Netherlands.       
+Jordano, P. & Schupp, E.W. (2000) Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. _Ecological Monographs_, **70**, 591–615.     
+
+
+
