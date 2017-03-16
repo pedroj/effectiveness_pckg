@@ -1,5 +1,7 @@
-# The effectiveness package
-An `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
+# The effectiveness package      
+[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078)      
+
+This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
 
 ![Effectiveness](http://pedroj.github.io/effectiveness/images/effectiveness_cecropia.png)
 
