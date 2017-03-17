@@ -5,7 +5,7 @@ date: "enero 28, 2015"
 output: html_document
 ---
 
-### Code for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
+### Code for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values
 
 Effectiveness landscapes are the two-dimensional representation of the possible combinations of the quantity and the quality of mutualistic services (seed dispersal, pollination) and with elevational contours representing isoclines of effectiveness. These representations can be 2D bivariate plots of multiplicative effects of any of the seed dispersal (SDE) or pollination (PE) effectiveness components.  
 
@@ -52,6 +52,8 @@ effectiveness(prunus$visits, prunus$eff_per_vis,
    myxlab= "No. visits/10h", 
    myylab="Effectiveness/vis (No. fruits handled)")
 #--------------------------------------------------------------------
+
+#--------------------------------------------------------------------
 # Based on a dataset of Cecropia glaziovii frugivores.
 # This effectiveness_plot function has repel labels activated.
 data(cecropia)
@@ -59,9 +61,12 @@ effectiveness_plot(cecropia$totvis, cecropia$totbic,
     cecropia$fam, cecropia$code, 10, 
     myxlab= "No. visits/10h", 
     myylab="Effectiveness/vis (No. fruits handled)")
-
+#--------------------------------------------------------------------
 
 ```
+
+
+
 ### References
 
 Schupp, E.W., Jordano, P. & Gomez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **00**, 000–000. In press. doi: 10.1111/ele.12764       
