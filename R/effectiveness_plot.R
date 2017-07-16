@@ -7,6 +7,8 @@
 #' 
 #' @param q1 Numeric vector representing the "quantitative component", to plot on the X axis. 
 #' @param q2 Numeric vector representing the "qualitative component", to plot on the Y axis.
+#' @param q1.error Optional. Numeric vector to be used as error bars for \code{q1}.
+#' @param q2.error Optional. Numeric vector to be used as error bars for \code{q2}.
 #' @param pts.shape Optional. A grouping variable (< 7 groups) to set point shapes (e.g., family).
 #' @param pts.color Optional. A grouping variable to set point colours (e.g., family).
 #' @param label Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).
@@ -56,7 +58,7 @@
 #' 
 #'
 effectiveness_plot <- function(q1, q2, 
-                               #q1.error, q2.error, 
+                               q1.error = NULL, q2.error = NULL, 
                                pts.shape = NULL, pts.color = NULL, 
                                label = NA, 
                                show.lines = TRUE, nlines = 8,
@@ -72,12 +74,33 @@ effectiveness_plot <- function(q1, q2,
     
     ### General elements ###
     
-    d <- data.frame(x = q1, y = q2, label)  
+    d <- data.frame(x = q1, y = q2, label = label)  
     
     effplot <- 
         ggplot() + 
         mytheme_bw() +
         labs(x = myxlab, y = myylab) 
+    
+    
+    
+    ### Error bars ###
+    
+    if (!is.null(q1.error)) {
+        
+        d <- data.frame(d, x.error = q1.error)
+        effplot <- effplot + 
+            geom_errorbarh(aes(y, xmin = x - x.error, xmax = x + x.error))
+    }
+    
+    if (!is.null(q2.error)) {
+        
+        d <- data.frame(d, y.error = q2.error)
+        effplot <- effplot + 
+            geom_errorbar(aes(x, ymin = y - y.error, ymax = y + y.error))
+    }
+    
+    
+    
     
     
     ### Draw points ###

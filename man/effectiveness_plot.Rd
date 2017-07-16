@@ -4,14 +4,19 @@
 \alias{effectiveness_plot}
 \title{Function to plot effectiveness landscapes, with repel labels option.}
 \usage{
-effectiveness_plot(q1, q2, pts.shape = NULL, pts.color = NULL, label = NA,
-  show.lines = TRUE, nlines = 8, lines.breaks = "quantile",
-  lines.color = "grey50", myxlab = "QtComp", myylab = "QltComp")
+effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
+  pts.shape = NULL, pts.color = NULL, label = NA, show.lines = TRUE,
+  nlines = 8, lines.breaks = "quantile", lines.color = "grey50",
+  myxlab = "QtComp", myylab = "QltComp")
 }
 \arguments{
 \item{q1}{Numeric vector representing the "quantitative component", to plot on the X axis.}
 
 \item{q2}{Numeric vector representing the "qualitative component", to plot on the Y axis.}
+
+\item{q1.error}{Optional. Numeric vector to be used as error bars for \code{q1}.}
+
+\item{q2.error}{Optional. Numeric vector to be used as error bars for \code{q2}.}
 
 \item{pts.shape}{Optional. A grouping variable (< 7 groups) to set point shapes (e.g., family).}
 
