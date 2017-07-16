@@ -31,7 +31,6 @@
 #' #------------------------------------------------------------------------
 #' data(cecropia)
 #' effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
-#'     label = cecropia$code, nlines = 10, 
 #'     myxlab= "No. visits/10h", 
 #'     myylab="Effectiveness/vis (No. fruits handled)")
 #' #------------------------------------------------------------------------
@@ -41,7 +40,7 @@
 #' labels = cecropia$code
 #' labels[4:length(cecropia$code)] <- NA
 #' effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
-#'     label = labels, nlines = 10, 
+#'     label = labels, 
 #'     myxlab= "No. visits/10h", 
 #'     myylab="Effectiveness/vis (No. fruits handled)")
 #'     

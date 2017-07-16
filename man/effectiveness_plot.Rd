@@ -4,26 +4,35 @@
 \alias{effectiveness_plot}
 \title{Function to plot effectiveness landscapes, with repel labels option.}
 \usage{
-effectiveness_plot(q1, q2, group = NA, label = NA, nlines = 10,
-  myxlab = "QtComp", myylab = "QltComp")
+effectiveness_plot(q1, q2, pts.shape = NULL, pts.color = NULL, label = NA,
+  show.lines = TRUE, nlines = 8, lines.breaks = "quantile",
+  lines.color = "grey50", myxlab = "QtComp", myylab = "QltComp")
 }
 \arguments{
-\item{q1}{the "quantitative component", to plot on the X axis.}
+\item{q1}{Numeric vector representing the "quantitative component", to plot on the X axis.}
 
-\item{q2}{the "qualitative component", to plot on the Y axis.}
+\item{q2}{Numeric vector representing the "qualitative component", to plot on the Y axis.}
 
-\item{group}{a grouping variable to set point shapes (e.g., family).}
+\item{pts.shape}{Optional. A grouping variable (< 7 groups) to set point shapes (e.g., family).}
 
-\item{label}{a label for the individual points (e.g., spcies acronym).}
+\item{pts.color}{Optional. A grouping variable to set point colours (e.g., family).}
 
-\item{nlines}{specify the number of isolines.}
+\item{label}{Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).}
+
+\item{show.lines}{Logical. Show effectiveness isolines? (default is TRUE).}
+
+\item{nlines}{Specify the number of isolines.}
+
+\item{lines.breaks}{Either a numeric vector given break points for the contour lines, or \code{"pretty"} or \code{"quantile"} to choose optimal breaks using \code{link[classInt]{classIntervals}}. Note that using "pretty" will override nlines, as the number of lines will be determined algorithmically.}
+
+\item{lines.color}{Color of the isolines.}
 
 \item{myxlab}{optional label for axis X.}
 
 \item{myylab}{optional label for axis Y.}
 }
 \value{
-A ggplot2 object.
+A ggplot2 object, which can be later modified (see examples).
 }
 \description{
 Function to plot effectiveness landscapes, with repel labels option.
@@ -39,11 +48,29 @@ The script plots effectiveness landscapes as described in Schupp, E. W., Jordano
 # rate and per-visit effectiveness.
 #------------------------------------------------------------------------
 data(cecropia)
-effectiveness_plot(cecropia$totvis, cecropia$totbic, 
-    cecropia$fam, cecropia$code, 10, 
+effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
     myxlab= "No. visits/10h", 
     myylab="Effectiveness/vis (No. fruits handled)")
 #------------------------------------------------------------------------
 
-}
+## Avoiding label overplotting ##
+## e.g. showing only names of species with high effectiveness
+labels = cecropia$code
+labels[4:length(cecropia$code)] <- NA
+effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
+    label = labels, 
+    myxlab= "No. visits/10h", 
+    myylab="Effectiveness/vis (No. fruits handled)")
+    
+    
+################################################
 
+## Modify plot ##
+myplot <- effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
+    label = labels, nlines = 10, 
+    myxlab= "No. visits/10h", 
+    myylab="Effectiveness/vis (No. fruits handled)")
+myplot + theme_minimal()
+
+
+}
