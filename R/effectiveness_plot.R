@@ -1,20 +1,25 @@
-# The function -------------------------------------------------------------
+
 #' Function to plot effectiveness landscapes, with repel labels option.
 #' 
 #' @import ggplot2
 #' @import ggrepel
+#' @importFrom classInt classIntervals
 #' 
-#' @param q1 the "quantitative component", to plot on the X axis. 
-#' @param q2 the "qualitative component", to plot on the Y axis.
-#' @param group a grouping variable to set point shapes (e.g., family).
-#' @param label a label for the individual points (e.g., spcies acronym).
-#' @param nlines specify the number of isolines.
+#' @param q1 Numeric vector representing the "quantitative component", to plot on the X axis. 
+#' @param q2 Numeric vector representing the "qualitative component", to plot on the Y axis.
+#' @param pts.shape Optional. A grouping variable (< 7 groups) to set point shapes (e.g., family).
+#' @param pts.color Optional. A grouping variable to set point colours (e.g., family).
+#' @param label Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).
+#' @param show.lines Logical. Show effectiveness isolines? (default is TRUE).
+#' @param nlines Specify the number of isolines.
+#' @param lines.breaks Either a numeric vector given break points for the contour lines, or \code{"pretty"} or \code{"quantile"} to choose optimal breaks using \code{link[classInt]{classIntervals}}. Note that using "pretty" will override nlines, as the number of lines will be determined algorithmically. 
+#' @param lines.color Color of the isolines.
 #' @param myxlab optional label for axis X.
 #' @param myylab optional label for axis Y.
 #'
 #' @details The script plots effectiveness landscapes as described in Schupp, E. W., Jordano, P. and Gómez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
 #' 
-#' @return A ggplot2 object.
+#' @return A ggplot2 object, which can be later modified (see examples).
 #' @export
 #'
 #' @examples
@@ -25,76 +30,146 @@
 #' # rate and per-visit effectiveness.
 #' #------------------------------------------------------------------------
 #' data(cecropia)
-#' effectiveness_plot(cecropia$totvis, cecropia$totbic, 
-#'     cecropia$fam, cecropia$code, 10, 
+#' effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
+#'     label = cecropia$code, nlines = 10, 
 #'     myxlab= "No. visits/10h", 
 #'     myylab="Effectiveness/vis (No. fruits handled)")
 #' #------------------------------------------------------------------------
+#' 
+#' ## Avoiding label overplotting ##
+#' ## e.g. showing only names of species with high effectiveness
+#' labels = cecropia$code
+#' labels[4:length(cecropia$code)] <- NA
+#' effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
+#'     label = labels, nlines = 10, 
+#'     myxlab= "No. visits/10h", 
+#'     myylab="Effectiveness/vis (No. fruits handled)")
+#'     
+#'     
+#' ################################################
+#' 
+#' ## Modify plot ##
+#' myplot <- effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
+#'     label = labels, nlines = 10, 
+#'     myxlab= "No. visits/10h", 
+#'     myylab="Effectiveness/vis (No. fruits handled)")
+#' myplot + theme_minimal()
+#' 
 #'
-effectiveness_plot<- function(q1, q2, group=NA, label= NA, nlines=10,
-    myxlab= "QtComp", myylab= "QltComp")    {
-    # q1 is the component to plot on X axis
-    # q2 is the component to plot on Y axis
-    # group is a group label
-    # label is a taxa label
-    require(devtools)
-    require(ggplot2)
-    require(ggrepel)
-    #
-    d<-as.data.frame(cbind(q1, q2, group, label))
-    names(d)
-    nlines <- nlines+1 # number of isolines wanted
-    # slope of a straight line linking (left,bottom) to (right,above) 
-    # corners of the graphic
-    alfa <- max(d$q2)/max(d$q1)
-    # sequence of (nlines) regular spaced x values for the isoclines
-    xval <- seq(0, max(d$q1), 
-        length.out=(nlines+1))[2:(nlines+1)] 
-    isoc <- (xval*xval*alfa) # values of the isoclines
-    vis1<-seq(0, max(d$q1), length.out= 1000)
-    #
-    pp<- as.data.frame(vis1) # Build dataset for within loop plot.
-    for(i in 1:nlines)
-    {
-        pp<- cbind(pp, isoc[i]/vis1)
-    }    
-    # Main plot ------------------------------------------------------------
-    # mytheme_bw.R
-    # devtools::source_gist("https://gist.github.com/b843fbafa3af8f408972")
-    # source("./R/mytheme_bw.R")
-    #
-    p1<- ggplot(d, aes(x= q1, y= q2)) + 
-         geom_point(shape= group, size= 3) +
-         geom_text_repel(aes(x= q1, y= q2), size= 3, label= label, 
-                         nudge_y= 0.5,
-                         segment.size= 0.2, segment.alpha= 0.75) +
-    #    geom_text(size= 2, label= label, hjust= 0.5, vjust= 2.2) +
-         mytheme_bw()
-    # Repel labels
-    # ggplot(d) +
-    # geom_point(aes(q1, q2), color = 'red') +
-    #    geom_text_repel(aes(wt, mpg, label = rownames(mtcars))) +
-    #    theme_classic(base_size = 16)
-    #
-    # Adding isolines ------------------------------------------------------
-    labelx<- rep(0.8*max(q1), nlines)
-    labely<- as.vector(t(pp[800,1:nlines+1]))
+effectiveness_plot <- function(q1, q2, 
+                               #q1.error, q2.error, 
+                               pts.shape = NULL, pts.color = NULL, 
+                               label = NA, 
+                               show.lines = TRUE, nlines = 8,
+                               lines.breaks = "quantile", lines.color = "grey50", 
+                               myxlab= "QtComp", myylab= "QltComp")    {
+
     
-    for(i in 1:nlines+1){ 
-        #labely<- isoc[i]/(0.8*max(sde$eff_per_vis)
-        #    labely<- pp[,i][800]
-        p1= p1 + geom_line(aes(x, y), 
-            data= data.frame(x= pp$vis1, y= pp[,i]), 
-            col="blue", size = 0.25, alpha= 0.6) + 
-            ylim(0, max(q2)) +
-            xlab(paste(myxlab)) + 
-            ylab(paste(myylab))  # +
-        #        geom_text(aes(), data= NULL, x= labelx, y= labely, 
-        #            label = paste("QC = ", round(isoc[i], digits=1)),
-        #            size = 4, colour = "red")
+    ## Some checks before starting the work...
+    
+    if (length(q1) != length(q2)) stop("q1 and q2 must have equal length")
+    
+
+    
+    ### General elements ###
+    
+    d <- data.frame(x = q1, y = q2, label)  
+    
+    effplot <- 
+        ggplot() + 
+        mytheme_bw() +
+        labs(x = myxlab, y = myylab) 
+    
+    
+    ### Draw points ###
+    
+    if (is.null(pts.color) & is.null(pts.shape)) {
+        effplot <- effplot +
+            geom_point(aes(x, y), data = d, size = 2)
     }
-    p1 + annotate("text", x= labelx, y= labely,
-        label=paste("QC= ", round(isoc,1)), 
-        size=4, colour="red", hjust=0) 
+    
+    if (is.null(pts.color) & !is.null(pts.shape)) {
+        d <- data.frame(d, pts.shape)
+        effplot <- effplot +
+            geom_point(aes(x, y, shape = pts.shape), data = d, size = 2)
+    }
+    
+    if (!is.null(pts.color) & is.null(pts.shape)) {
+        d <- data.frame(d, pts.color)
+        effplot <- effplot +
+            geom_point(aes(x, y, colour = pts.color), data = d, size = 2)
+    }
+    
+    if (!is.null(pts.color) & !is.null(pts.shape)) {
+        d <- data.frame(d, pts.shape, pts.color)
+        effplot <- effplot +
+            geom_point(aes(x, y, color = pts.color, shape = pts.shape), 
+                       data = d, size = 2)
+    }
+    
+        
+
+    
+    
+    ##### Plotting contour lines ####
+
+    if (show.lines) {
+        
+        ### Fabricate contour lines ###
+        df <- expand.grid(x = seq(min(q1) - 0.05*min(q1), max(q1) + 0.05*max(q1), length.out = 500),
+                          y = seq(min(q2) - 0.05*min(q2), max(q2) + 0.05*max(q2), length.out = 500))
+        df$z <- df$x * df$y
+        
+        ## Define line breaks ##
+        ## If not provided, using classIntervals to get nice breaks:
+        ## style = "pretty" give nice rounded numbers for breaks (often ignoring nlines)
+        ## style = "quantile" cover better the plot, but values are not rounded (uglier)
+        if (lines.breaks == "quantile") {
+            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "quantile")$brks
+        }
+        
+        if (lines.breaks == "pretty") {
+            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "pretty")$brks  
+        }
+        
+        if (is.numeric(lines.breaks)) {
+            if (length(lines.breaks) != (nlines + 1)) stop("Length of lines.breaks does not match the specified number of lines (nlines + 1)")
+            lbreaks <- lines.breaks
+        }
+        
+        
+        
+        #### Preparing curve labels ####
+        brk <- lbreaks[-c(1, length(lbreaks))]
+        xlabel <- rep(max(df$x) + 0.05*max(df$x), times = length(brk))
+        ylabel <- brk/xlabel
+        xy.labels <- data.frame(x = xlabel, y = ylabel,
+                                label = as.character(round(brk)))
+        
+        
+        ### Add lines to plot ###
+        effplot <- effplot +
+            geom_contour(aes(x, y, z = z), data = df, colour = lines.color, breaks = lbreaks) + 
+            geom_text(aes(x, y, label = label), data = xy.labels)
+        
+        
+    } 
+    
+    
+    
+    ### Add point labels with ggrepel ###
+    
+    if (any(!is.na(label))) {
+        
+        effplot <- effplot +
+            geom_text_repel(aes(x, y), data = d, size = 3, label = label, 
+                            nudge_y = 0.5, 
+                            segment.size = 0.2, segment.alpha = 0.75) 
+    }
+    
+    
+    ## Print and return ggplot object
+    effplot
+    
 }
 
