@@ -84,6 +84,61 @@ effectiveness_plot <- function(q1, q2,
     
     
     
+    ##### Plotting contour lines ####
+    
+    if (show.lines) {
+        
+        ### Fabricate contour lines ###
+        
+        ## Define lower and upper bounds ##
+        x.lower <- ifelse(is.null(q1.error), min(q1), min(q1) - q1.error)
+        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1) + q1.error)
+        y.lower <- ifelse(is.null(q2.error), min(q2), min(q2) - q2.error)
+        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2) + q2.error)
+        
+        ## Calculate values ##
+        df <- expand.grid(x = seq(x.lower - 0.05*x.lower, x.upper + 0.05*x.upper, length.out = 500),
+                          y = seq(y.lower - 0.05*y.lower, y.upper + 0.05*y.upper, length.out = 500))
+        df$z <- df$x * df$y
+        
+        ## Define line breaks ##
+        ## If not provided, using classIntervals to get nice breaks:
+        ## style = "pretty" give nice rounded numbers for breaks (often ignoring nlines)
+        ## style = "quantile" cover better the plot, but values are not rounded (uglier)
+        if (lines.breaks == "quantile") {
+            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "quantile")$brks
+        }
+        
+        if (lines.breaks == "pretty") {
+            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "pretty")$brks  
+        }
+        
+        if (is.numeric(lines.breaks)) {
+            if (length(lines.breaks) != (nlines + 1)) stop("Length of lines.breaks does not match the specified number of lines (nlines + 1)")
+            lbreaks <- lines.breaks
+        }
+        
+        
+        
+        #### Preparing curve labels ####
+        brk <- lbreaks[-c(1, length(lbreaks))]
+        xlabel <- rep(max(df$x) + 0.05*max(df$x), times = length(brk))
+        ylabel <- brk/xlabel
+        xy.labels <- data.frame(x = xlabel, y = ylabel, 
+                                label = as.character(round(brk)))
+        xy.labels <- subset(xy.labels, y > y.lower)
+        
+        
+        ### Add lines to plot ###
+        effplot <- effplot +
+            geom_contour(aes(x, y, z = z), data = df, colour = lines.color, breaks = lbreaks, size = 0.3) + 
+            geom_text(aes(x, y, label = label), data = xy.labels)
+        
+        
+    } 
+    
+    
+    
     ### Error bars ###
     
     if (!is.null(q1.error)) {
@@ -132,62 +187,6 @@ effectiveness_plot <- function(q1, q2,
     
         
 
-    
-    
-    ##### Plotting contour lines ####
-
-    if (show.lines) {
-        
-        ### Fabricate contour lines ###
-        
-        ## Define lower and upper bounds ##
-        x.lower <- ifelse(is.null(q1.error), min(q1), min(q1) - q1.error)
-        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1) + q1.error)
-        y.lower <- ifelse(is.null(q2.error), min(q2), min(q2) - q2.error)
-        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2) + q2.error)
-        
-        ## Calculate values ##
-        df <- expand.grid(x = seq(x.lower - 0.05*x.lower, x.upper + 0.05*x.upper, length.out = 500),
-                          y = seq(y.lower - 0.05*y.lower, y.upper + 0.05*y.upper, length.out = 500))
-        df$z <- df$x * df$y
-        
-        ## Define line breaks ##
-        ## If not provided, using classIntervals to get nice breaks:
-        ## style = "pretty" give nice rounded numbers for breaks (often ignoring nlines)
-        ## style = "quantile" cover better the plot, but values are not rounded (uglier)
-        if (lines.breaks == "quantile") {
-            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "quantile")$brks
-        }
-        
-        if (lines.breaks == "pretty") {
-            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "pretty")$brks  
-        }
-        
-        if (is.numeric(lines.breaks)) {
-            if (length(lines.breaks) != (nlines + 1)) stop("Length of lines.breaks does not match the specified number of lines (nlines + 1)")
-            lbreaks <- lines.breaks
-        }
-        
-        
-        
-        #### Preparing curve labels ####
-        brk <- lbreaks[-c(1, length(lbreaks))]
-        xlabel <- rep(max(df$x) + 0.05*max(df$x), times = length(brk))
-        ylabel <- brk/xlabel
-        xy.labels <- data.frame(x = xlabel, y = ylabel,
-                                label = as.character(round(brk)))
-        
-        
-        ### Add lines to plot ###
-        effplot <- effplot +
-            geom_contour(aes(x, y, z = z), data = df, colour = lines.color, breaks = lbreaks) + 
-            geom_text(aes(x, y, label = label), data = xy.labels)
-        
-        
-    } 
-    
-    
-    
     ### Add point labels with ggrepel ###
     
     if (any(!is.na(label))) {
