@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+
+# The effectiveness package      
+
+[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078)      
+
+This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
+
+Effectiveness landscapes are the two-dimensional representation of the possible combinations of the quantity and the quality of mutualistic services (seed dispersal, pollination) and with elevational contours representing isoclines of effectiveness. These representations can be 2D bivariate plots of multiplicative effects of any of the seed dispersal (SDE) or pollination (PE) effectiveness components. 
+
+
+
+## Installation
+
+```r
+devtools::install_github("pedroj/effectiveness_pckg")
+```
+
+
+## Usage
+
+```{r}
+library(effect.lndscp)
+```
+
+
+
+Based on a dataset of *Cecropia glaziovii* frugivores. In this example we build the effectiveness landscape just for the quantitative component, plotting its two subcomponents, visitation rate and per-visit effectiveness.
+
+```{r cecropia}
+data(cecropia)
+effectiveness_plot(cecropia$totvis, cecropia$totbic, 
+    myxlab = "No. visits/10h", 
+    myylab = "Effectiveness/vis (No. fruits handled)")
+```
+
+
+Based on a dataset of *Prunus mahaleb* frugivores. 
+
+```{r prunus}
+data(prunus)
+effectiveness_plot(prunus$visits, prunus$eff_per_vis, 
+   pts.shape = prunus$group, label = prunus$animal,  
+   myxlab = "No. visits/10h", 
+   myylab = "Effectiveness/vis (No. fruits handled)")
+```
+
+
+
+
+For additional details please visit the web page [here](http://pedroj.github.com/effectiveness/).
+
+
+**References**       
+Schupp, E.W., Jordano, P. &amp; Gómez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **20**, 577–590. In press. **doi**: 10.1111/ele.12764    
+Schupp, E.W., Jordano, P. & Gómez, J.M. (2010) Seed dispersal effectiveness revisited: A conceptual review. _New Phytologist_, **188**, 333–353.       
+Schupp, E.W. (1993) Quantity, quality and the effectiveness of seed dispersal by animals. In: _Frugivory and seed dispersal: ecological and evolutionary aspects_ (eds T.H. Fleming & A. Estrada), pp. 15–29. Springer, Dordrecht; The Netherlands.       
+Jordano, P. & Schupp, E.W. (2000) Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. _Ecological Monographs_, **70**, 591–615.     
+
+
+
