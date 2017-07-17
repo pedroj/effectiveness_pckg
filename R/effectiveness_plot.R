@@ -77,9 +77,10 @@ effectiveness_plot <- function(q1, q2,
     d <- data.frame(x = q1, y = q2, label = label)  
     
     effplot <- 
-        ggplot() + 
+        ggplot(data = d, aes(x, y)) + 
         mytheme_bw() +
-        labs(x = myxlab, y = myylab) 
+        labs(x = myxlab, y = myylab) +
+        theme(legend.title = element_blank())
     
     
     
@@ -89,14 +90,14 @@ effectiveness_plot <- function(q1, q2,
         
         d <- data.frame(d, x.error = q1.error)
         effplot <- effplot + 
-            geom_errorbarh(aes(x = x, y = y, xmin = x - x.error, xmax = x + x.error), data = d)
+            geom_errorbarh(aes(xmin = x - x.error, xmax = x + x.error), data = d)
     }
     
     if (!is.null(q2.error)) {
         
         d <- data.frame(d, y.error = q2.error)
         effplot <- effplot + 
-            geom_errorbar(aes(x = x, y = y, ymin = y - y.error, ymax = y + y.error), data = d)
+            geom_errorbar(aes(ymin = y - y.error, ymax = y + y.error), data = d)
     }
     
     
@@ -107,25 +108,25 @@ effectiveness_plot <- function(q1, q2,
     
     if (is.null(pts.color) & is.null(pts.shape)) {
         effplot <- effplot +
-            geom_point(aes(x, y), data = d, size = 2)
+            geom_point(size = 2)
     }
     
     if (is.null(pts.color) & !is.null(pts.shape)) {
         d <- data.frame(d, pts.shape)
         effplot <- effplot +
-            geom_point(aes(x, y, shape = pts.shape), data = d, size = 2)
+            geom_point(aes(shape = pts.shape), data = d, size = 2)
     }
     
     if (!is.null(pts.color) & is.null(pts.shape)) {
         d <- data.frame(d, pts.color)
         effplot <- effplot +
-            geom_point(aes(x, y, colour = pts.color), data = d, size = 2)
+            geom_point(aes(colour = pts.color), data = d, size = 2)
     }
     
     if (!is.null(pts.color) & !is.null(pts.shape)) {
         d <- data.frame(d, pts.shape, pts.color)
         effplot <- effplot +
-            geom_point(aes(x, y, color = pts.color, shape = pts.shape), 
+            geom_point(aes(color = pts.color, shape = pts.shape), 
                        data = d, size = 2)
     }
     
