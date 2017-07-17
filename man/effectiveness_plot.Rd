@@ -28,7 +28,7 @@ effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
 
 \item{nlines}{Specify the number of isolines.}
 
-\item{lines.breaks}{Either a numeric vector given break points for the contour lines, or \code{"pretty"} or \code{"quantile"} to choose optimal breaks using \code{link[classInt]{classIntervals}}. Note that using "pretty" will override nlines, as the number of lines will be determined algorithmically.}
+\item{lines.breaks}{Either a numeric vector giving break points for the contour lines, or a \code{"style"} (e.g. \code{"quantile"}, \code{"equal"}, or \code{"pretty"}) to choose optimal breaks using \code{\link[classInt]{classIntervals}}. Note that using "pretty" will override \code{nlines}, as the number of lines will be determined algorithmically. See \code{\link[classInt]{classIntervals}} for more details.}
 
 \item{lines.color}{Color of the isolines.}
 

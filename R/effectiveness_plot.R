@@ -14,7 +14,7 @@
 #' @param label Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).
 #' @param show.lines Logical. Show effectiveness isolines? (default is TRUE).
 #' @param nlines Specify the number of isolines.
-#' @param lines.breaks Either a numeric vector given break points for the contour lines, or \code{"pretty"} or \code{"quantile"} to choose optimal breaks using \code{link[classInt]{classIntervals}}. Note that using "pretty" will override nlines, as the number of lines will be determined algorithmically. 
+#' @param lines.breaks Either a numeric vector giving break points for the contour lines, or a \code{"style"} (e.g. \code{"quantile"}, \code{"equal"}, or \code{"pretty"}) to choose optimal breaks using \code{\link[classInt]{classIntervals}}. Note that using "pretty" will override \code{nlines}, as the number of lines will be determined algorithmically. See \code{\link[classInt]{classIntervals}} for more details.
 #' @param lines.color Color of the isolines.
 #' @param myxlab optional label for axis X.
 #' @param myylab optional label for axis Y.
@@ -103,22 +103,22 @@ effectiveness_plot <- function(q1, q2,
         
         ## Define line breaks ##
         ## If not provided, using classIntervals to get nice breaks:
-        ## style = "pretty" give nice rounded numbers for breaks (often ignoring nlines)
+        ## e.g. style = "pretty" give nice rounded numbers for breaks (often ignoring nlines)
         ## style = "quantile" cover better the plot, but values are not rounded (uglier)
-        if (lines.breaks == "quantile") {
-            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "quantile")$brks
-        }
-        
-        if (lines.breaks == "pretty") {
-            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, style = "pretty")$brks  
-        }
+        ## there are other alternatives, see ?classIntervals
         
         if (is.numeric(lines.breaks)) {
             if (length(lines.breaks) != (nlines + 1)) stop("Length of lines.breaks does not match the specified number of lines (nlines + 1)")
             lbreaks <- lines.breaks
         }
         
+        if (is.character(lines.breaks)) {
+            lbreaks <- classInt::classIntervals(df$z, n = nlines + 1, 
+                                                style = lines.breaks)$brks
+        }
         
+        
+
         
         #### Preparing curve labels ####
         brk <- lbreaks[-c(1, length(lbreaks))]
