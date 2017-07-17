@@ -6,7 +6,7 @@
 \usage{
 effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
   pts.shape = NULL, pts.color = NULL, label = NA, show.lines = TRUE,
-  nlines = 8, lines.breaks = "quantile", lines.color = "grey50",
+  nlines = 6, lines.breaks = "quantile", lines.color = "grey50",
   myxlab = "QtComp", myylab = "QltComp")
 }
 \arguments{

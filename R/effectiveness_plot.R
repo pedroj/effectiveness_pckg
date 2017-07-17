@@ -61,7 +61,7 @@ effectiveness_plot <- function(q1, q2,
                                q1.error = NULL, q2.error = NULL, 
                                pts.shape = NULL, pts.color = NULL, 
                                label = NA, 
-                               show.lines = TRUE, nlines = 8,
+                               show.lines = TRUE, nlines = 6,
                                lines.breaks = "quantile", lines.color = "grey50", 
                                myxlab= "QtComp", myylab= "QltComp")    {
 
@@ -89,14 +89,14 @@ effectiveness_plot <- function(q1, q2,
         
         d <- data.frame(d, x.error = q1.error)
         effplot <- effplot + 
-            geom_errorbarh(aes(y, xmin = x - x.error, xmax = x + x.error))
+            geom_errorbarh(aes(x = x, y = y, xmin = x - x.error, xmax = x + x.error), data = d)
     }
     
     if (!is.null(q2.error)) {
         
         d <- data.frame(d, y.error = q2.error)
         effplot <- effplot + 
-            geom_errorbar(aes(x, ymin = y - y.error, ymax = y + y.error))
+            geom_errorbar(aes(x = x, y = y, ymin = y - y.error, ymax = y + y.error), data = d)
     }
     
     
@@ -138,8 +138,16 @@ effectiveness_plot <- function(q1, q2,
     if (show.lines) {
         
         ### Fabricate contour lines ###
-        df <- expand.grid(x = seq(min(q1) - 0.05*min(q1), max(q1) + 0.05*max(q1), length.out = 500),
-                          y = seq(min(q2) - 0.05*min(q2), max(q2) + 0.05*max(q2), length.out = 500))
+        
+        ## Define lower and upper bounds ##
+        x.lower <- ifelse(is.null(q1.error), min(q1), min(q1) - q1.error)
+        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1) + q1.error)
+        y.lower <- ifelse(is.null(q2.error), min(q2), min(q2) - q2.error)
+        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2) + q2.error)
+        
+        ## Calculate values ##
+        df <- expand.grid(x = seq(x.lower - 0.05*x.lower, x.upper + 0.05*x.upper, length.out = 500),
+                          y = seq(y.lower - 0.05*y.lower, y.upper + 0.05*y.upper, length.out = 500))
         df$z <- df$x * df$y
         
         ## Define line breaks ##
