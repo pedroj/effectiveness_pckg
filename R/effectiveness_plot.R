@@ -91,10 +91,10 @@ effectiveness_plot <- function(q1, q2,
         ### Fabricate contour lines ###
         
         ## Define lower and upper bounds ##
-        x.lower <- ifelse(is.null(q1.error), min(q1), min(q1) - q1.error)
-        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1) + q1.error)
-        y.lower <- ifelse(is.null(q2.error), min(q2), min(q2) - q2.error)
-        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2) + q2.error)
+        x.lower <- ifelse(is.null(q1.error), 0, min(0, q1 - q1.error))
+        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1 + q1.error))
+        y.lower <- ifelse(is.null(q2.error), 0, min(0, q2 - q2.error))
+        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2 + q2.error))
         
         ## Calculate values ##
         df <- expand.grid(x = seq(x.lower - 0.05*x.lower, x.upper + 0.05*x.upper, length.out = 500),
