@@ -125,7 +125,7 @@ effectiveness_plot <- function(q1, q2,
         xlabel <- rep(max(df$x) + 0.05*max(df$x), times = length(brk))
         ylabel <- brk/xlabel
         xy.labels <- data.frame(x = xlabel, y = ylabel, 
-                                label = as.character(round(brk)))
+                                label = as.character(brk))
         xy.labels <- subset(xy.labels, y > y.lower)
         
         
