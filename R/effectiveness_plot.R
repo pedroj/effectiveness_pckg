@@ -126,8 +126,10 @@ effectiveness_plot <- function(q1, q2,
         brk <- lbreaks[-c(1, length(lbreaks))]
         xlabel <- rep(max(df$x) + 0.05*max(df$x), times = length(brk))
         ylabel <- brk/xlabel
-        xy.labels <- data.frame(x = xlabel, y = ylabel, 
-                                label = as.character(brk))
+        # trying pretty labels:
+        if (mean(diff(brk)) > 1) lines.labels <- as.character(round(brk)) else
+            lines.labels <- as.character(signif(brk, digits = 2))
+        xy.labels <- data.frame(x = xlabel, y = ylabel, label = lines.labels)
         xy.labels <- subset(xy.labels, y > y.lower)
         
         

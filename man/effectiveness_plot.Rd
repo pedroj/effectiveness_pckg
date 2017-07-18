@@ -5,9 +5,10 @@
 \title{Function to plot effectiveness landscapes, with repel labels option.}
 \usage{
 effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
-  pts.shape = NULL, pts.color = NULL, label = NA, show.lines = TRUE,
-  nlines = 6, lines.breaks = "quantile", lines.color = "grey50",
-  myxlab = "QtComp", myylab = "QltComp")
+  pts.shape = NULL, pts.color = NULL, pts.size = 2, label = NA,
+  italic = FALSE, show.lines = TRUE, nlines = 6,
+  lines.breaks = "quantile", lines.color = "grey50", myxlab = "QtComp",
+  myylab = "QltComp")
 }
 \arguments{
 \item{q1}{Numeric vector representing the "quantitative component", to plot on the X axis.}
@@ -22,7 +23,11 @@ effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
 
 \item{pts.color}{Optional. A grouping variable to set point colours (e.g., family).}
 
+\item{pts.size}{Optional. Size of points.}
+
 \item{label}{Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).}
+
+\item{italic}{Logical. Use italic font for labels?}
 
 \item{show.lines}{Logical. Show effectiveness isolines? (default is TRUE).}
 
