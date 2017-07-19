@@ -93,10 +93,10 @@ effectiveness_plot <- function(q1, q2,
         ### Fabricate contour lines ###
         
         ## Define lower and upper bounds ##
-        x.lower <- ifelse(is.null(q1.error), 0, min(0, q1 - q1.error))
-        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1 + q1.error))
-        y.lower <- ifelse(is.null(q2.error), 0, min(0, q2 - q2.error))
-        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2 + q2.error))
+        x.lower <- ifelse(is.null(q1.error), 0, min(0, q1 - q1.error, na.rm = TRUE))
+        x.upper <- ifelse(is.null(q1.error), max(q1), max(q1, q1 + q1.error, na.rm = TRUE))
+        y.lower <- ifelse(is.null(q2.error), 0, min(0, q2 - q2.error, na.rm = TRUE))
+        y.upper <- ifelse(is.null(q2.error), max(q2), max(q2, q2 + q2.error, na.rm = TRUE))
         
         ## Calculate values ##
         df <- expand.grid(x = seq(x.lower - 0.05*x.lower, x.upper + 0.05*x.upper, length.out = 500),
@@ -148,6 +148,7 @@ effectiveness_plot <- function(q1, q2,
     if (!is.null(q1.error)) {
         
         d <- data.frame(d, x.error = q1.error)
+        d$x.error[is.na(d$x.error)] <- 0
         effplot <- effplot + 
             geom_errorbarh(aes(xmin = x - x.error, xmax = x + x.error), data = d)
     }
@@ -155,6 +156,7 @@ effectiveness_plot <- function(q1, q2,
     if (!is.null(q2.error)) {
         
         d <- data.frame(d, y.error = q2.error)
+        d$y.error[is.na(d$y.error)] <- 0
         effplot <- effplot + 
             geom_errorbar(aes(ymin = y - y.error, ymax = y + y.error), data = d)
     }
