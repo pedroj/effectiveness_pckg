@@ -6,7 +6,7 @@
 \usage{
 effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
   pts.shape = NULL, pts.color = NULL, pts.size = 2, label = NA,
-  italic = FALSE, show.lines = TRUE, nlines = 6,
+  label.size = 3, italic = FALSE, show.lines = TRUE, nlines = 6,
   lines.breaks = "quantile", lines.color = "grey50", myxlab = "QtComp",
   myylab = "QltComp")
 }
@@ -26,6 +26,8 @@ effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
 \item{pts.size}{Optional. Size of points.}
 
 \item{label}{Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).}
+
+\item{label.size}{Size of point labels.}
 
 \item{italic}{Logical. Use italic font for labels?}
 

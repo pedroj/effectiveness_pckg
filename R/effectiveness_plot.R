@@ -13,6 +13,7 @@
 #' @param pts.color Optional. A grouping variable to set point colours (e.g., family).
 #' @param pts.size Optional. Size of points.
 #' @param label Optional. A character vector of the same length as \code{q1} and \code{q2} providing a label for the individual points (e.g., species acronym). Note that \code{label} may be NA for some points (useful to avoid overplotting of labels).
+#' @param label.size Size of point labels.
 #' @param italic Logical. Use italic font for labels? 
 #' @param show.lines Logical. Show effectiveness isolines? (default is TRUE).
 #' @param nlines Specify the number of isolines.
@@ -62,7 +63,7 @@
 effectiveness_plot <- function(q1, q2, 
                                q1.error = NULL, q2.error = NULL, 
                                pts.shape = NULL, pts.color = NULL, pts.size = 2,
-                               label = NA, italic = FALSE, 
+                               label = NA, label.size = 3, italic = FALSE, 
                                show.lines = TRUE, nlines = 6,
                                lines.breaks = "quantile", lines.color = "grey50", 
                                myxlab= "QtComp", myylab= "QltComp")    {
@@ -198,7 +199,7 @@ effectiveness_plot <- function(q1, q2,
     if (any(!is.na(label))) {
         
         effplot <- effplot +
-            geom_text_repel(aes(x, y), data = d, size = 3, label = label, 
+            geom_text_repel(aes(x, y), data = d, size = label.size, label = label, 
                             nudge_y = 0.5, 
                             segment.size = 0.2, segment.alpha = 0.75,
                             fontface = ifelse(isTRUE(italic), "italic", "plain")) 
