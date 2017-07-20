@@ -149,7 +149,7 @@ effectiveness_plot <- function(q1, q2,
     if (!is.null(q1.error)) {
         
         d <- data.frame(d, x.error = q1.error)
-        d$x.error[is.na(d$x.error)] <- 0
+        #d$x.error[is.na(d$x.error)] <- 0
         effplot <- effplot + 
             geom_errorbarh(aes(xmin = x - x.error, xmax = x + x.error), data = d)
     }
@@ -157,7 +157,7 @@ effectiveness_plot <- function(q1, q2,
     if (!is.null(q2.error)) {
         
         d <- data.frame(d, y.error = q2.error)
-        d$y.error[is.na(d$y.error)] <- 0
+        #d$y.error[is.na(d$y.error)] <- 0
         effplot <- effplot + 
             geom_errorbar(aes(ymin = y - y.error, ymax = y + y.error), data = d)
     }
