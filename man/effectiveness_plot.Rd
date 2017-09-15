@@ -8,7 +8,7 @@ effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
   pts.shape = NULL, pts.color = NULL, pts.size = 2, label = NA,
   label.size = 3, italic = FALSE, show.lines = TRUE, nlines = 6,
   lines.breaks = "quantile", lines.color = "grey50", myxlab = "QtComp",
-  myylab = "QltComp")
+  myylab = "QltComp", ...)
 }
 \arguments{
 \item{q1}{Numeric vector representing the "quantitative component", to plot on the X axis.}
@@ -42,6 +42,8 @@ effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
 \item{myxlab}{optional label for axis X.}
 
 \item{myylab}{optional label for axis Y.}
+
+\item{...}{Further arguments to be passed to \code{\link[ggrepel]{geom_text_repel}} (apart from \code{segment_size}, \code{segment_alpha}, and \code{fontface}, which are already defined in this function).}
 }
 \value{
 A ggplot2 object, which can be later modified (see examples).

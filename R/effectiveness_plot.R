@@ -21,6 +21,7 @@
 #' @param lines.color Color of the isolines.
 #' @param myxlab optional label for axis X.
 #' @param myylab optional label for axis Y.
+#' @param ... Further arguments to be passed to \code{\link[ggrepel]{geom_text_repel}} (apart from \code{segment_size}, \code{segment_alpha}, and \code{fontface}, which are already defined in this function).
 #'
 #' @details The script plots effectiveness landscapes as described in Schupp, E. W., Jordano, P. and Gómez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
 #' 
@@ -66,7 +67,7 @@ effectiveness_plot <- function(q1, q2,
                                label = NA, label.size = 3, italic = FALSE, 
                                show.lines = TRUE, nlines = 6,
                                lines.breaks = "quantile", lines.color = "grey50", 
-                               myxlab= "QtComp", myylab= "QltComp")    {
+                               myxlab= "QtComp", myylab= "QltComp", ...)    {
 
     
     ## Some checks before starting the work...
@@ -203,7 +204,8 @@ effectiveness_plot <- function(q1, q2,
             geom_text_repel(aes(x, y), data = d, size = label.size, label = label, 
                            # nudge_y = 0.5, 
                             segment.size = 0.2, segment.alpha = 0.75,
-                            fontface = ifelse(isTRUE(italic), "italic", "plain")) 
+                            fontface = ifelse(isTRUE(italic), "italic", "plain"),
+                           ...) 
     }
     
     
