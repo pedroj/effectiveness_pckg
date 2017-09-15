@@ -201,7 +201,7 @@ effectiveness_plot <- function(q1, q2,
         
         effplot <- effplot +
             geom_text_repel(aes(x, y), data = d, size = label.size, label = label, 
-                            nudge_y = 0.5, 
+                           # nudge_y = 0.5, 
                             segment.size = 0.2, segment.alpha = 0.75,
                             fontface = ifelse(isTRUE(italic), "italic", "plain")) 
     }
