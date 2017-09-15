@@ -172,7 +172,7 @@ effectiveness_plot <- function(q1, q2,
     
     if (is.null(pts.color) & is.null(pts.shape)) {
         effplot <- effplot +
-            geom_point(size = pts.size)
+            geom_point(size = pts.size, colour = "black")
     }
     
     if (is.null(pts.color) & !is.null(pts.shape)) {
@@ -184,7 +184,7 @@ effectiveness_plot <- function(q1, q2,
     if (!is.null(pts.color) & is.null(pts.shape)) {
         d <- data.frame(d, pts.color)
         effplot <- effplot +
-            geom_point(aes(colour = pts.color), data = d, size = pts.size)
+            geom_point(aes(colour = pts.color), data = d, size = pts.size, colour = "black")
     }
     
     if (!is.null(pts.color) & !is.null(pts.shape)) {
