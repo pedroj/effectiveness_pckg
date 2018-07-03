@@ -12,11 +12,13 @@
 data(prunus)
 }
 \description{
-Data from a study on Prunus mahaleb (Rosaceae) seed dispersal by frugivorous animals in SE Spain. Visitation data come from 107.3 h direct watches.
+Data from a study on Prunus mahaleb (Rosaceae) seed dispersal by frugivorous
+animals in SE Spain. Visitation data come from 107.3 h direct watches.
 }
 \details{
 Variables include:
 
+# Visitation data come from 107.3 h direct watches.
 abundance-          Mean no. birds censused/km, averaged for two study years.
 
 visits-             Mean no. visitis recorded to fruiting trees (/10 h).
@@ -39,4 +41,3 @@ Schupp, E. W., Jordano, P. and Gomez, J.M. 2010. Seed dispersal effectiveness re
 Jordano, P. and Schupp, E.W. 2000. Seed disperser effectiveness: The quantity component and patterns of seed rain for Prunus mahaleb. Ecological Monographs 70: 591–615.
 }
 \keyword{datasets}
-

@@ -22,4 +22,3 @@ Effectiveness landscapes are the two-dimensional representation of the possible 
 Pedro Jordano
 }
 \keyword{package}
-
