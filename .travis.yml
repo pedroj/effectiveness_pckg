@@ -1,2 +1,7 @@
 language: r
 cache: packages
+os: osx,
+dist: trusty
+sudo: false
+cache: packages
+group: stable
