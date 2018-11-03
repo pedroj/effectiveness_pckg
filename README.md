@@ -2,7 +2,7 @@
 The effectiveness package
 =========================
 
-[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078)
+[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078) [![Build Status](https://travis-ci.org/pedroj/effectiveness_pckg.svg?branch=master)](https://travis-ci.org/pedroj/effectiveness_pckg)
 
 This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
 
