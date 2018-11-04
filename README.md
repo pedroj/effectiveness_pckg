@@ -31,7 +31,7 @@ effectiveness_plot(cecropia$totvis, cecropia$totbic,
     myylab = "Effectiveness/vis (No. fruits handled)")
 ```
 
-![](README-cecropia-1.png)
+![](README-cecropia.png)
 
 Based on a dataset of *Prunus mahaleb* frugivores.
 
@@ -43,7 +43,7 @@ effectiveness_plot(prunus$visits, prunus$eff_per_vis,
    myylab = "Effectiveness/vis (No. fruits handled)")
 ```
 
-![](README-prunus-1.png)
+![](README-prunus.png)
 
 For additional details please visit the web page [here](http://pedroj.github.com/effectiveness/).
 
