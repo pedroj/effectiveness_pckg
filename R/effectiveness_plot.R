@@ -58,7 +58,7 @@
 #'     label = labels, nlines = 10, 
 #'     myxlab= "No. visits/10h", 
 #'     myylab="Effectiveness/vis (No. fruits handled)")
-#' myplot + theme_minimal()
+#' myplot + ggplot2::theme_minimal()
 #' 
 #'
 effectiveness_plot <- function(q1, q2, 
@@ -122,8 +122,6 @@ effectiveness_plot <- function(q1, q2,
         }
         
         
-
-        
         #### Preparing curve labels ####
         brk <- lbreaks[-c(1, length(lbreaks))]
         xlabel <- rep(max(df$x) + 0.05*max(df$x), times = length(brk))
@@ -145,8 +143,7 @@ effectiveness_plot <- function(q1, q2,
     } 
     
     
-    
-    ### Error bars ###
+        ### Error bars ###
     
     if (!is.null(q1.error)) {
         

@@ -7,8 +7,8 @@
 effectiveness_plot(q1, q2, q1.error = NULL, q2.error = NULL,
   pts.shape = NULL, pts.color = NULL, pts.size = 2, label = NA,
   label.size = 3, italic = FALSE, show.lines = TRUE, nlines = 6,
-  lines.breaks = "quantile", lines.color = "grey50", myxlab = "QtComp",
-  myylab = "QltComp", ...)
+  lines.breaks = "quantile", lines.color = "grey50",
+  myxlab = "QtComp", myylab = "QltComp", ...)
 }
 \arguments{
 \item{q1}{Numeric vector representing the "quantitative component", to plot on the X axis.}
@@ -84,7 +84,7 @@ myplot <- effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic,
     label = labels, nlines = 10, 
     myxlab= "No. visits/10h", 
     myylab="Effectiveness/vis (No. fruits handled)")
-myplot + theme_minimal()
+myplot + ggplot2::theme_minimal()
 
 
 }
