@@ -69,7 +69,7 @@ effectiveness_plot(cecropia$totvis, cecropia$totbic,
 
 ### References
 
-Schupp, E.W., Jordano, P. & Gomez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **00**, 000–000. In press. doi: 10.1111/ele.12764       
+Schupp, E.W., Jordano, P. & Gomez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **20**, 577-590. doi: 10.1111/ele.12764       
 Schupp, E.W. (1993). Quantity, quality and the effectiveness of seed dispersal by animals. _Vegetatio_, **108**, 15–29.       
 Schupp, E.W., Jordano, P. & Gomez, J.M. (2010). Seed dispersal effectiveness revisited: a conceptual review. _New Phytologist_, **188**, 333–353.       
 Jordano, P. & Schupp, E. (2000). Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. Ecological Monographs, **70**, 591–615.
