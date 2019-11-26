@@ -47,7 +47,7 @@ The function returns a `ggplot2` plot object that can be later customized with a
 #
 require(effect.lndscp)
 data(prunus)
-effectiveness(prunus$visits, prunus$eff_per_vis, 
+effectiveness_plot(prunus$visits, prunus$eff_per_vis, 
    prunus$group, prunus$animal, 10, 
    myxlab= "No. visits/10h", 
    myylab="Effectiveness/vis (No. fruits handled)")
