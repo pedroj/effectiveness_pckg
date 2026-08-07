@@ -2,7 +2,7 @@
 The effectiveness package
 =========================
 
-[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078) [![Build Status](https://travis-ci.org/pedroj/effectiveness_pckg.svg?branch=master)](https://travis-ci.org/pedroj/effectiveness_pckg)
+[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078) 
 
 This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
 
@@ -47,8 +47,23 @@ effectiveness_plot(prunus$visits, prunus$eff_per_vis,
 
 For additional details please visit the web page [here](http://pedroj.github.com/effectiveness/).
 
-**References**
+Citation
+--------
+Jordano, P., & Rodriguez-Sanchez, F. (2017). The effect.lndscp R package: Effectiveness landscapes. doi: 10.5281/zenodo.376763 Mar 11, 2017 [Manual]. https://github.com/pedroj/effectiveness_pckg
 
+```
+@techreport{Jordano.Rodriguez-Sanchez:2017:,
+	type = {manual},
+	title = {The effect.lndscp {R} package: {Effectiveness} landscapes. doi: 10.5281/zenodo.376763 {Mar} 11, 2017},
+	url = {https://github.com/pedroj/effectiveness_pckg},
+	author = {Jordano, Pedro and Rodríguez-Sánchez, Francisco},
+	year = {2017},
+	annote = {R package version 0.2.8, commit b1339ee2fc4a674182ae0bad9c661ebdc85e3b4a},
+}
+```
+
+**References**
+--------------
 Schupp, E.W., Jordano, P. & Gómez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. *Ecology Letters*, **20**, 577–590. **doi**: 10.1111/ele.12764
 
 Schupp, E.W., Jordano, P. & Gómez, J.M. (2010) Seed dispersal effectiveness revisited: A conceptual review. *New Phytologist*, **188**, 333–353.
