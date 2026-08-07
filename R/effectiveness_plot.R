@@ -197,7 +197,7 @@ effectiveness_plot <- function(q1, q2,
     if (any(!is.na(label))) {
         
         effplot <- effplot +
-            geom_text_repel(aes(x = .data$x, y = .data$y), data = d, size = label.size, label = label,
+            ggrepel::geom_text_repel(aes(x = .data$x, y = .data$y), data = d, size = label.size, label = label,
                            # nudge_y = 0.5, 
                             segment.size = 0.2, segment.alpha = 0.75,
                             fontface = ifelse(isTRUE(italic), "italic", "plain"),
