@@ -21,7 +21,10 @@ Installation:
 
 ```{r install, echo=TRUE, eval=FALSE}
 # Installation
-devtools::install_github("pedroj/effectiveness_pckg")
+require("pak") # Using pak as `install_github()` 
+               # was deprecated in devtools 2.5.0.
+pak::pak("pedroj/effectiveness_pckg")
+# devtools::install_github("pedroj/effectiveness_pckg")
 library(effect.lndscp)
 
 # Example datasets.
