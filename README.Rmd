@@ -13,7 +13,9 @@ knitr::opts_chunk$set(
 
 # The effectiveness package      
 
-[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078)      
+[![DOI](https://zenodo.org/badge/84199078.svg)](https://zenodo.org/badge/latestdoi/84199078)
+[![R-CMD-check](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml/badge.svg)](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml)
+[![R](https://img.shields.io/badge/R-%23276DC3.svg?style=flat&logo=r&logoColor=white)](https://www.r-project.org/)
 
 This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
 
