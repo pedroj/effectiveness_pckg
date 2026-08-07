@@ -20,4 +20,5 @@ Imports:
 URL: http://pedroj.github.com/effectiveness/,http://ebd10.ebd.csic.es/resources/
 License: GPL-3
 LazyData: true
-RoxygenNote: 7.3.2
+Encoding: UTF-8
+Config/roxygen2/version: 8.0.0
