@@ -1,3 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 effectiveness.Rmd
+^\.claude$
+^\.travis\.yml$
+^\.github$
+^README\.Rmd$
+^data-raw$
+^effectiveness\.html$
+^images$

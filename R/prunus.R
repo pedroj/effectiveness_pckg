@@ -32,7 +32,7 @@
 #'
 #' @references Schupp, E. W., Jordano, P. and Gomez, J.M. 2010. Seed dispersal effectiveness revisited: a conceptual review. New Phytologist 188: 333-353.
 #'
-#'Jordano, P. and Schupp, E.W. 2000. Seed disperser effectiveness: The quantity component and patterns of seed rain for Prunus mahaleb. Ecological Monographs 70: 591–615.
+#'Jordano, P. and Schupp, E.W. 2000. Seed disperser effectiveness: The quantity component and patterns of seed rain for Prunus mahaleb. Ecological Monographs 70: 591-615.
 #'
 #' @source \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/data.txt}{Data txt archive}
 #'
