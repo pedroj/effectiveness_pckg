@@ -135,7 +135,7 @@ effectiveness_plot <- function(q1, q2,
         
         ### Add lines to plot ###
         effplot <- effplot +
-            geom_contour(aes(x = .data$x, y = .data$y, z = .data$z), data = df, colour = lines.color, breaks = lbreaks, size = 0.3) +
+            geom_contour(aes(x = .data$x, y = .data$y, z = .data$z), data = df, colour = lines.color, breaks = lbreaks, linewidth = 0.3) +
             geom_text(aes(x = .data$x, y = .data$y, label = label), data = xy.labels)
         
         
