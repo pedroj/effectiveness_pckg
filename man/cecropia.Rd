@@ -6,7 +6,9 @@
 \title{Quantitative component of effectiveness for Cecropia glaziovii-frugivorous birds interactions.
 Focal observations at Parque Estadual Intervales, Sao Paulo. 
 Pedro Jordano. 25 Mar 2012.}
-\format{A dataset (dataframe).}
+\format{
+A dataset (dataframe).
+}
 \source{
 \href{https://raw.githubusercontent.com/pedroj/effectiveness/master/cecropia/data.txt}{Data txt archive}
 }
@@ -17,7 +19,7 @@ data(cecropia)
 Data from a field project during the Frugivory and Seed dispersal field course, 2012.
 }
 \details{
-Visitation data come from 140 h direct watches. A data.frame with 42 obs. of  37 variables.
+Visitation data come from 140 h direct watches. A data.frame with 42 obs. of  37 variables. 
 
 First 6 variables are codes for Class, Order, Family, Genus, Species, and species label.
 
