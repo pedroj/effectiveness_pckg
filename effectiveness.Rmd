@@ -47,9 +47,9 @@ The function returns a `ggplot2` plot object that can be later customized with a
 #
 require(effect.lndscp)
 data(prunus)
-effectiveness_plot(prunus$visits, prunus$eff_per_vis, 
-   prunus$group, prunus$animal, 10, 
-   myxlab= "No. visits/10h", 
+effectiveness_plot(prunus$visits, prunus$eff_per_vis,
+   pts.shape = prunus$group, label = prunus$animal, nlines = 10,
+   myxlab= "No. visits/10h",
    myylab="Effectiveness/vis (No. fruits handled)")
 #--------------------------------------------------------------------
 
@@ -57,9 +57,9 @@ effectiveness_plot(prunus$visits, prunus$eff_per_vis,
 # Based on a dataset of Cecropia glaziovii frugivores.
 # This effectiveness_plot function has repel labels activated.
 data(cecropia)
-effectiveness_plot(cecropia$totvis, cecropia$totbic, 
-    cecropia$fam, cecropia$code, 10, 
-    myxlab= "No. visits/10h", 
+effectiveness_plot(cecropia$totvis, cecropia$totbic,
+    pts.shape = cecropia$fam, label = cecropia$code, nlines = 10,
+    myxlab= "No. visits/10h",
     myylab="Effectiveness/vis (No. fruits handled)")
 #--------------------------------------------------------------------
 
