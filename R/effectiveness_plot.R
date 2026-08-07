@@ -54,8 +54,8 @@
 #' ################################################
 #' 
 #' ## Modify plot ##
+#'     label = labels, nlines = element_10, 
 #' myplot <- effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
-#'     label = labels, nlines = 10, 
 #'     myxlab= "No. visits/10h", 
 #'     myylab="Effectiveness/vis (No. fruits handled)")
 #' myplot + ggplot2::theme_minimal()
