@@ -14,7 +14,10 @@ Installation
 ------------
 
 ``` r
-devtools::install_github("pedroj/effectiveness_pckg")
+require("pak") # Using pak as `install_github()` 
+               # was deprecated in devtools 2.5.0.
+pak::pak("pedroj/effectiveness_pckg")
+
 ```
 
 Usage
@@ -22,6 +25,7 @@ Usage
 
 ``` r
 library(effect.lndscp)
+
 ```
 
 Based on a dataset of *Cecropia glaziovii* frugivores. In this example we build the effectiveness landscape just for the quantitative component, plotting its two subcomponents, visitation rate and per-visit effectiveness.
@@ -31,6 +35,7 @@ data(cecropia)
 effectiveness_plot(cecropia$totvis, cecropia$totbic, 
     myxlab = "No. visits/10h", 
     myylab = "Effectiveness/vis (No. fruits handled)")
+    
 ```
 
 ![](./images/README-cecropia.png)
@@ -43,6 +48,7 @@ effectiveness_plot(prunus$visits, prunus$eff_per_vis,
    pts.shape = prunus$group, label = prunus$animal,  
    myxlab = "No. visits/10h", 
    myylab = "Effectiveness/vis (No. fruits handled)")
+   
 ```
 
 ![](./images/README-prunus.png)
