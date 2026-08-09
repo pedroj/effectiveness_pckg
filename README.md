@@ -2,9 +2,10 @@
 The effectiveness package
 =========================
 
+![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.376763.svg)](https://doi.org/10.5281/zenodo.376763)
 [![R-CMD-check](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml/badge.svg)](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml)
-[![R](https://img.shields.io/badge/R-%23276DC3.svg?style=flat&logo=r&logoColor=white)](https://www.r-project.org/)
+
 
 This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
 
