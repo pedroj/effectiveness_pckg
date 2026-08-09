@@ -160,10 +160,6 @@ effectiveness_plot <- function(q1, q2,
             geom_errorbar(aes(ymin = .data$y - .data$y.error, ymax = .data$y + .data$y.error), data = d)
     }
     
-    
-    
-    
-    
     ### Draw points ###
     
     if (is.null(pts.color) & is.null(pts.shape)) {

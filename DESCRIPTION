@@ -1,6 +1,6 @@
 Package: effect.lndscp
-Title: Effectiveness landscapes
-Version: 0.2.9
+Title: Effectiveness Landscape Analysis
+Version: 0.3
 Authors@R: c(person("Pedro", "Jordano", email = "jordano@ebd.csic.es",
                   role = c("aut", "cre")), 
             person("Francisco", "Rodriguez-Sanchez", role = "aut"))
@@ -14,11 +14,12 @@ Description: A function for plotting the effectiveness landscape of mutualisms
 Depends:
     R (>= 3.5)
 Imports:
-    classInt,
-    ggplot2,
-    ggrepel
-URL: http://pedroj.github.com/effectiveness/,http://ebd10.ebd.csic.es/resources/
+      classInt,
+      ggplot2,
+      ggrepel
+URL: http://pedroj.github.com/effectiveness/,http://pjordanolab.ebd.csic.es/resources/
 License: GPL-3
 LazyData: true
 Encoding: UTF-8
-Config/roxygen2/version: 8.0.0
+LazyDataCompression: xz
+Config/roxygen2/version: 8.1.0
