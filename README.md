@@ -5,7 +5,6 @@ The effectiveness package
 ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.376763.svg)](https://doi.org/10.5281/zenodo.376763)
 [![R-CMD-check](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml/badge.svg)](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml)
-<<<<<<< HEAD
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![R](https://img.shields.io/badge/R-passing-brightgreen)](https://github.com/pedroj/FRUBASE/actions/workflows/r.yml)
 [![Super-Linter](https://img.shields.io/badge/Super--Linter-passing-brightgreen)](https://github.com/pedroj/FRUBASE/actions/workflows/superlinter.yml)
@@ -13,9 +12,6 @@ The effectiveness package
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen)](https://lifecycle.r-lib.org/articles/stages.html)
 [![last commit](https://img.shields.io/github/last-commit/pedroj/FRUBASE)](https://github.com/pedroj/FRUBASE/commits/main)
 =======
-
->>>>>>> a858ec3 (Update README.md)
-
 This is `effect.lndscp`, an `R` package for plotting the effectiveness landscape of mutualisms adding isolines of equal effectiveness values.
 
 Effectiveness landscapes are the two-dimensional representation of the possible combinations of the quantity and the quality of mutualistic services (seed dispersal, pollination) and with elevational contours representing isoclines of effectiveness. These representations can be 2D bivariate plots of multiplicative effects of any of the seed dispersal (SDE) or pollination (PE) effectiveness components.
