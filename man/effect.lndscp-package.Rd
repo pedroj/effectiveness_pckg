@@ -21,7 +21,7 @@ Effectiveness landscapes are the two-dimensional representation of the possible 
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://pedroj.github.com/effectiveness/},\url{http://ebd10.ebd.csic.es/resources/}
+  \item \url{http://pedroj.github.com/effectiveness/},\url{http://pjordanolab.ebd.csic.es/resources/}
 }
 
 }
