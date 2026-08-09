@@ -1,0 +1,14 @@
+species	plant	plant_family	QTY	QTY_SD	QTY_SE	energy_fruit	TE
+Euphonia chlorotica	Cupania oblongifolia	Sapindaceae	0.017	3.587	NA	3.587	0.060979
+Euphonia chlorotica	Phoradendron affine	Santalaceae	35.998	0.45254834	0.32	0.1536285	5.530318743
+Euphonia chlorotica	Protium heptaphyllum	Burseraceae	1.61	1.921916231	1.359	4.2033384	6.767374824
+Euphonia chlorotica	Tapirira guianensis	Anacardiaceae	0.411	NA	NA	9.4395962	3.879674038
+Euphonia violacea	Cecropia glaziovii	Urticaceae	0.001175	0.001166726	0.000825	5.0789972	0.005967822
+Euphonia violacea	Citharexylum myrianthum	Verbenaceae	0.2	NA	NA	2.0816495	0.4163299
+Euphonia violacea	Miconia prasina	Melastomataceae	8.4	NA	NA	1.124811	9.4484124
+Euphonia violacea	Phoradendron crassifolium	Santalaceae	3.813	NA	NA	0.1536285	0.585785471
+Euphonia violacea	Protium heptaphyllum	Burseraceae	1.349	1.023890619	0.724	4.2033384	5.670303502
+Euphonia violacea	Tapirira guianensis	Anacardiaceae	0.196	NA	NA	9.4395962	1.850160855
+Euphonia chlorotica	Cecropia glaziovii	Urticaceae	0.000592857	NA	NA	5.0789972	0.00301112
+Euphonia chlorotica	Phoradendron piperoides	Santalaceae	4.798	NA	NA	0.1536285	0.737109543
+Euphonia violacea	Phoradendron piperoides	Santalaceae	2.399	NA	NA	0.1536285	0.368554772

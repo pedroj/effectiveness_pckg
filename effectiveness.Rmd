@@ -66,9 +66,32 @@ effectiveness_plot(cecropia$totvis, cecropia$totbic,
     myylab="Effectiveness/vis (No. fruits handled)")
 #--------------------------------------------------------------------
 
+#--------------------------------------------------------------------
+# EUPHONIA
+# Illustrating the use of error bars in effcetiveness plots.
+Euphonia <- read_delim("data-raw/euphonia.txt", "\t", escape_double = FALSE, 
+                       col_types = cols(plant = col_factor(levels = c()), 
+                                        plant_family = col_factor(levels = c()), 
+                                        species = col_factor(levels = c())), trim_ws = TRUE)
+usethis::use_data(Euphonia, overwrite = TRUE)
+data(Euphonia)
+
+E_viola <- subset(Euphonia, species == "Euphonia violacea")
+E_chloro <- subset(Euphonia, species == "Euphonia chlorotica")
+
+Eupho <-effectiveness_plot(q1= Euphonia$QTY, q2= Euphonia$energy_fruit, 
+                           q1.error= Euphonia$QTY_SE, q2.error = NULL, italic= T,
+                           pts.shape= Euphonia$species, pts.color= Euphonia$species, 
+                           label=Euphonia$plant, nlines = 9,
+                           lines.breaks = c(3,7,29,43,61,81,106,136,182,231),
+                           lines.color = "light grey", pts.size=3,
+                           myxlab= "QTY component - feeding frequency (fruits/h)", 
+                           myylab= "QLY component - energy (KJ/fruit)")
+Eupho + scale_colour_manual(values=c("gray43","gray83")) +
+    geom_point(shape=Euphonia$species, colour = "black", size=3)
+#--------------------------------------------------------------------
+
 ```
-
-
 
 ### References
 
@@ -76,6 +99,7 @@ Schupp, E.W., Jordano, P. & Gomez, J.M. (2017). A general framework for effectiv
 Schupp, E.W. (1993). Quantity, quality and the effectiveness of seed dispersal by animals. _Vegetatio_, **108**, 15–29.       
 Schupp, E.W., Jordano, P. & Gomez, J.M. (2010). Seed dispersal effectiveness revisited: a conceptual review. _New Phytologist_, **188**, 333–353.       
 Jordano, P. & Schupp, E. (2000). Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. Ecological Monographs, **70**, 591–615.
+Quintero, E., M. A. Pizo, and P. Jordano. 2020. Fruit resource provisioning for avian frugivores: The overlooked side of effectiveness in seed dispersal mutualisms. Journal of Ecology 108: 1358–1372.
 
 ----------------------------------
 ```{r}

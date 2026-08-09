@@ -12,7 +12,7 @@ Description: A function for plotting the effectiveness landscape of mutualisms
     representations can be 2D bivariate plots of multiplicative effects of any of
     the seed dispersal (SDE) or pollination (PE) effectiveness components. 
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.5)
 Imports:
     classInt,
     ggplot2,
