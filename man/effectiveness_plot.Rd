@@ -71,33 +71,38 @@ The script plots effectiveness landscapes as described in Schupp, E. W., Jordano
 \examples{
 #------------------------------------------------------------------------
 # Based on a dataset of Cecropia glaziovii frugivores.
-# In this example we build the effectiveness landscape just for the 
-# quantitative component, plotting its two subcomponents, visitation 
+# In this example we build the effectiveness landscape just for the
+# quantitative component, plotting its two subcomponents, visitation
 # rate and per-visit effectiveness.
 #------------------------------------------------------------------------
 data(cecropia)
-effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
-    myxlab= "No. visits/10h", 
-    myylab="Effectiveness/vis (No. fruits handled)")
+effectiveness_plot(
+  q1 = cecropia$totvis, q2 = cecropia$totbic,
+  myxlab = "No. visits/10h",
+  myylab = "Effectiveness/vis (No. fruits handled)"
+)
 #------------------------------------------------------------------------
 
 ## Avoiding label overplotting ##
 ## e.g. showing only names of species with high effectiveness
-labels = cecropia$code
+labels <- cecropia$code
 labels[4:length(cecropia$code)] <- NA
-effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic, 
-    label = labels, 
-    myxlab= "No. visits/10h", 
-    myylab="Effectiveness/vis (No. fruits handled)")
-    
-    
+effectiveness_plot(
+  q1 = cecropia$totvis, q2 = cecropia$totbic,
+  label = labels,
+  myxlab = "No. visits/10h",
+  myylab = "Effectiveness/vis (No. fruits handled)"
+)
+
+
 ################################################
 
 ## Modify plot ##
-myplot <- effectiveness_plot(q1 = cecropia$totvis, q2 = cecropia$totbic,
-    myxlab= "No. visits/10h", 
-    myylab="Effectiveness/vis (No. fruits handled)")
+myplot <- effectiveness_plot(
+  q1 = cecropia$totvis, q2 = cecropia$totbic,
+  myxlab = "No. visits/10h",
+  myylab = "Effectiveness/vis (No. fruits handled)"
+)
 myplot + ggplot2::theme_minimal()
-
 
 }

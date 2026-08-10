@@ -3,7 +3,7 @@
 \docType{data}
 \name{Euphonia}
 \alias{Euphonia}
-\title{Quantitative component of effectiveness for Euphonia birds feeding on 
+\title{Quantitative component of effectiveness for Euphonia birds feeding on
 different fruit species.
 Pedro Jordano. 25 Jul 2026.}
 \format{
@@ -16,7 +16,7 @@ A dataset (dataframe).
 data(cecropia)
 }
 \description{
-Quantitative component of effectiveness for Euphonia birds feeding on 
+Quantitative component of effectiveness for Euphonia birds feeding on
 different fruit species.
 Pedro Jordano. 25 Jul 2026.
 }
