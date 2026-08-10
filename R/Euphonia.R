@@ -1,9 +1,9 @@
-#' Quantitative component of effectiveness for Euphonia birds feeding on 
+#' Quantitative component of effectiveness for Euphonia birds feeding on
 #' different fruit species.
 #' Pedro Jordano. 25 Jul 2026.
 #'
 #' @docType data
-#' 
+#'
 #' @usage data(cecropia)
 #'
 #' @format A dataset (dataframe).
