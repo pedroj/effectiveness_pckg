@@ -7,7 +7,6 @@ The effectiveness package
 [![R-CMD-check](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml/badge.svg)](https://github.com/pedroj/effectiveness_pckg/actions/workflows/r.yml)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![R](https://img.shields.io/badge/R-passing-brightgreen)](https://github.com/pedroj/FRUBASE/actions/workflows/r.yml)
-[![Super-Linter](https://img.shields.io/badge/Super--Linter-passing-brightgreen)](https://github.com/pedroj/FRUBASE/actions/workflows/superlinter.yml)
 [![codecov](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/pedroj/FRUBASE)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen)](https://lifecycle.r-lib.org/articles/stages.html)
 [![last commit](https://img.shields.io/github/last-commit/pedroj/FRUBASE)](https://github.com/pedroj/FRUBASE/commits/main)
