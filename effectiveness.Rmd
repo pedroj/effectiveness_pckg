@@ -49,11 +49,23 @@ The function returns a `ggplot2` plot object that can be later customized with a
 #
 require(effect.lndscp)
 data(prunus)
-effectiveness_plot(prunus$visits, prunus$eff_per_vis,
-  pts.shape = prunus$group, label = prunus$animal, nlines = 10,
-  myxlab = "No. visits/10h",
-  myylab = "Effectiveness/vis (No. fruits handled)"
+p <- effectiveness_plot(
+  prunus$visits,
+  prunus$eff_per_vis,
+  pts.size  = 3,
+  pts.shape = prunus$group,
+  pts.color = prunus$group,
+  label     = prunus$animal,
+  nlines    = 10,
+  myxlab    = "No. visits/10h",
+  myylab    = "Effectiveness/vis (No. fruits handled)"
 )
+p +
+  guides(
+    shape = "none",
+    color = guide_legend(title = "Group")
+  )
+
 #--------------------------------------------------------------------
 
 #--------------------------------------------------------------------
