@@ -21,8 +21,8 @@ Installation:
 
 ```{r install, echo=TRUE, eval=FALSE}
 # Installation
-require("pak") # Using pak as `install_github()` 
-               # was deprecated in devtools 2.5.0.
+require("pak") # Using pak as `install_github()`
+# was deprecated in devtools 2.5.0.
 pak::pak("pedroj/effectiveness_pckg")
 # devtools::install_github("pedroj/effectiveness_pckg")
 library(effect.lndscp)
@@ -30,7 +30,6 @@ library(effect.lndscp)
 # Example datasets.
 data(prunus)
 data(cecropia)
-
 ```
 
 
@@ -44,16 +43,17 @@ The function returns a `ggplot2` plot object that can be later customized with a
 ```{r example, message=FALSE, warning=FALSE, fig.height= 8,fig.width=10}
 #--------------------------------------------------------------------
 # Based on a dataset of Prunus mahaleb frugivores.
-# In this example we build the effectiveness landscape just for the 
-# quantitative component, plotting its two subcomponents, visitation 
+# In this example we build the effectiveness landscape just for the
+# quantitative component, plotting its two subcomponents, visitation
 # rate and per-visit effectiveness.
 #
 require(effect.lndscp)
 data(prunus)
 effectiveness_plot(prunus$visits, prunus$eff_per_vis,
-   pts.shape = prunus$group, label = prunus$animal, nlines = 10,
-   myxlab= "No. visits/10h",
-   myylab="Effectiveness/vis (No. fruits handled)")
+  pts.shape = prunus$group, label = prunus$animal, nlines = 10,
+  myxlab = "No. visits/10h",
+  myylab = "Effectiveness/vis (No. fruits handled)"
+)
 #--------------------------------------------------------------------
 
 #--------------------------------------------------------------------
@@ -61,20 +61,25 @@ effectiveness_plot(prunus$visits, prunus$eff_per_vis,
 # This effectiveness_plot function has repel labels activated.
 data(cecropia)
 effectiveness_plot(cecropia$totvis, cecropia$totbic,
-    pts.color = cecropia$fam, pts.size = 3,
-    label = cecropia$code, 
-    nlines = 10,
-    myxlab= "No. visits/10h",
-    myylab="Effectiveness/vis (No. fruits handled)")
+  pts.color = cecropia$fam, pts.size = 3,
+  label = cecropia$code,
+  nlines = 10,
+  myxlab = "No. visits/10h",
+  myylab = "Effectiveness/vis (No. fruits handled)"
+)
 #--------------------------------------------------------------------
 
 #--------------------------------------------------------------------
 # EUPHONIA
 # Illustrating the use of error bars in effcetiveness plots.
-Euphonia <- read_delim("data-raw/euphonia.txt", "\t", escape_double = FALSE, 
-                       col_types = cols(plant = col_factor(levels = c()), 
-                                        plant_family = col_factor(levels = c()), 
-                                        species = col_factor(levels = c())), trim_ws = TRUE)
+Euphonia <- read_delim("data-raw/euphonia.txt", "\t",
+  escape_double = FALSE,
+  col_types = cols(
+    plant = col_factor(levels = c()),
+    plant_family = col_factor(levels = c()),
+    species = col_factor(levels = c())
+  ), trim_ws = TRUE
+)
 usethis::use_data(Euphonia, overwrite = TRUE)
 data(Euphonia)
 
@@ -86,47 +91,45 @@ Euphonia$QTY_jit <- jitter(Euphonia$QTY, amount = 0.08)
 Euphonia$energy_fruit_jit <- jitter(Euphonia$energy_fruit, amount = 0.08)
 
 Eupho <- effectiveness_plot(
-    q1 = Euphonia$QTY_jit,
-    q2 = Euphonia$energy_fruit_jit,
-    q1.error = Euphonia$QTY_SE,
-    q2.error = NULL,
-    italic = TRUE,
-    pts.shape = Euphonia$species,
-    pts.color = Euphonia$species,
-    label = Euphonia$plant,
-    nlines = 9,
-    lines.breaks = c(3, 7, 29, 43, 61, 81, 106, 136, 182, 231),
-    lines.color = "light grey",
-    
-    pts.size = 3,
-    myxlab = "QTY component - feeding frequency (fruits/h)",
-    myylab = "QLY component - energy (KJ/fruit)",
-    max.overlaps = Inf,
-    box.padding = 0.4,
-    point.padding = 0.3,
-    segment.color = "grey50",
-    segment.size = 0.1,
-    force = 1,
-    seed = 42
+  q1 = Euphonia$QTY_jit,
+  q2 = Euphonia$energy_fruit_jit,
+  q1.error = Euphonia$QTY_SE,
+  q2.error = NULL,
+  italic = TRUE,
+  pts.shape = Euphonia$species,
+  pts.color = Euphonia$species,
+  label = Euphonia$plant,
+  nlines = 9,
+  lines.breaks = c(3, 7, 29, 43, 61, 81, 106, 136, 182, 231),
+  lines.color = "light grey",
+  pts.size = 3,
+  myxlab = "QTY component - feeding frequency (fruits/h)",
+  myylab = "QLY component - energy (KJ/fruit)",
+  max.overlaps = Inf,
+  box.padding = 0.4,
+  point.padding = 0.3,
+  segment.color = "grey50",
+  segment.size = 0.1,
+  force = 1,
+  seed = 42
 ) +
-    scale_colour_manual(values = c(
-        "Euphonia violacea" = "lightblue",
-        "Euphonia chlorotica" = "orange"
-    ))
+  scale_colour_manual(values = c(
+    "Euphonia violacea" = "lightblue",
+    "Euphonia chlorotica" = "orange"
+  ))
 
 # Thinner error bars.
 Eupho$layers <- lapply(Eupho$layers, function(layer) {
-    if (inherits(layer$geom, c("GeomErrorbar", "GeomErrorbarh"))) {
-        layer$aes_params$linewidth <- 0.2
-        layer$aes_params$size <- 0.2
-    }
-    layer
+  if (inherits(layer$geom, c("GeomErrorbar", "GeomErrorbarh"))) {
+    layer$aes_params$linewidth <- 0.2
+    layer$aes_params$size <- 0.2
+  }
+  layer
 })
 
 Eupho
 
 #--------------------------------------------------------------------
-
 ```
 
 ### References
