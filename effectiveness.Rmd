@@ -41,7 +41,7 @@ These are two examples run on datasets available in the package. The second uses
 The function returns a `ggplot2` plot object that can be later customized with additional `ggplot2` options, as well as the actual plot.
 
 
-```{r example, message=FALSE, warning=FALSE, fig.height= 6,fig.width=8}
+```{r example, message=FALSE, warning=FALSE, fig.height= 8,fig.width=10}
 #--------------------------------------------------------------------
 # Based on a dataset of Prunus mahaleb frugivores.
 # In this example we build the effectiveness landscape just for the 
@@ -61,7 +61,9 @@ effectiveness_plot(prunus$visits, prunus$eff_per_vis,
 # This effectiveness_plot function has repel labels activated.
 data(cecropia)
 effectiveness_plot(cecropia$totvis, cecropia$totbic,
-    pts.shape = cecropia$fam, label = cecropia$code, nlines = 10,
+    pts.color = cecropia$fam, pts.size = 3,
+    label = cecropia$code, 
+    nlines = 10,
     myxlab= "No. visits/10h",
     myylab="Effectiveness/vis (No. fruits handled)")
 #--------------------------------------------------------------------
@@ -79,16 +81,50 @@ data(Euphonia)
 E_viola <- subset(Euphonia, species == "Euphonia violacea")
 E_chloro <- subset(Euphonia, species == "Euphonia chlorotica")
 
-Eupho <-effectiveness_plot(q1= Euphonia$QTY, q2= Euphonia$energy_fruit, 
-                           q1.error= Euphonia$QTY_SE, q2.error = NULL, italic= T,
-                           pts.shape= Euphonia$species, pts.color= Euphonia$species, 
-                           label=Euphonia$plant, nlines = 9,
-                           lines.breaks = c(3,7,29,43,61,81,106,136,182,231),
-                           lines.color = "light grey", pts.size=3,
-                           myxlab= "QTY component - feeding frequency (fruits/h)", 
-                           myylab= "QLY component - energy (KJ/fruit)")
-Eupho + scale_colour_manual(values=c("gray43","gray83")) +
-    geom_point(shape=Euphonia$species, colour = "black", size=3)
+set.seed(42)
+Euphonia$QTY_jit <- jitter(Euphonia$QTY, amount = 0.08)
+Euphonia$energy_fruit_jit <- jitter(Euphonia$energy_fruit, amount = 0.08)
+
+Eupho <- effectiveness_plot(
+    q1 = Euphonia$QTY_jit,
+    q2 = Euphonia$energy_fruit_jit,
+    q1.error = Euphonia$QTY_SE,
+    q2.error = NULL,
+    italic = TRUE,
+    pts.shape = Euphonia$species,
+    pts.color = Euphonia$species,
+    label = Euphonia$plant,
+    nlines = 9,
+    lines.breaks = c(3, 7, 29, 43, 61, 81, 106, 136, 182, 231),
+    lines.color = "light grey",
+    
+    pts.size = 3,
+    myxlab = "QTY component - feeding frequency (fruits/h)",
+    myylab = "QLY component - energy (KJ/fruit)",
+    max.overlaps = Inf,
+    box.padding = 0.4,
+    point.padding = 0.3,
+    segment.color = "grey50",
+    segment.size = 0.1,
+    force = 1,
+    seed = 42
+) +
+    scale_colour_manual(values = c(
+        "Euphonia violacea" = "lightblue",
+        "Euphonia chlorotica" = "orange"
+    ))
+
+# Thinner error bars.
+Eupho$layers <- lapply(Eupho$layers, function(layer) {
+    if (inherits(layer$geom, c("GeomErrorbar", "GeomErrorbarh"))) {
+        layer$aes_params$linewidth <- 0.2
+        layer$aes_params$size <- 0.2
+    }
+    layer
+})
+
+Eupho
+
 #--------------------------------------------------------------------
 
 ```
@@ -98,7 +134,7 @@ Eupho + scale_colour_manual(values=c("gray43","gray83")) +
 Schupp, E.W., Jordano, P. & Gomez, J.M. (2017). A general framework for effectiveness concepts in mutualisms. _Ecology Letters_, **20**, 577-590. doi: 10.1111/ele.12764       
 Schupp, E.W. (1993). Quantity, quality and the effectiveness of seed dispersal by animals. _Vegetatio_, **108**, 15–29.       
 Schupp, E.W., Jordano, P. & Gomez, J.M. (2010). Seed dispersal effectiveness revisited: a conceptual review. _New Phytologist_, **188**, 333–353.       
-Jordano, P. & Schupp, E. (2000). Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. Ecological Monographs, **70**, 591–615.
+Jordano, P. & Schupp, E. (2000). Seed disperser effectiveness: The quantity component and patterns of seed rain for _Prunus mahaleb_. Ecological Monographs, **70**, 591–615.          
 Quintero, E., M. A. Pizo, and P. Jordano. 2020. Fruit resource provisioning for avian frugivores: The overlooked side of effectiveness in seed dispersal mutualisms. Journal of Ecology 108: 1358–1372.
 
 ----------------------------------

@@ -8,7 +8,7 @@
 #' # Visitation data come from 107.3 h direct watches.
 #' abundance-          Mean no. birds censused/km, averaged for two study years.
 #'
-#' visits-             Mean no. visitis recorded to fruiting trees (/10 h).
+#' visits-             Mean no. visits recorded to fruiting trees (/10 h).
 #'
 #' prop_visits-        Proportion of total visits recorded (feeding records)
 #'                     contributed by species. Relative to the total no. 
