@@ -1,6 +1,6 @@
 Package: effect.lndscp
 Title: Effectiveness Landscape Analysis
-Version: 0.5-beta.1
+Version: 0.5
 Authors@R: c(person("Pedro", "Jordano", email = "jordano@ebd.csic.es",
                   role = c("aut", "cre")), 
             person("Francisco", "Rodriguez-Sanchez", role = "aut"))
